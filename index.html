@@ -16,41 +16,44 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Mono',monospace;background:var(--black);color:var(--text);min-height:100vh;font-size:13px;line-height:1.6}
 
-/* PROGRESS */
-.prog-wrap{height:4px;background:var(--surface2);margin-bottom:0;position:sticky;top:0;z-index:100}
-.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),#E8B96E);transition:width .5s ease;width:0%}
-.prog-label{text-align:center;font-size:10px;color:var(--text-muted);letter-spacing:.1em;padding:8px 0;background:var(--deep)}
+/* SCREENS — JS controls visibility via .hidden class only */
+.screen { display: block; }
+.screen.hidden { display: none !important; }
 
-/* LAYOUT */
-.app{max-width:640px;margin:0 auto;padding:48px 20px 120px}
+/* PROGRESS */
+.prog-wrap{height:4px;background:var(--surface2);position:sticky;top:0;z-index:100}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),#E8B96E);transition:width .5s ease;width:0%}
+.prog-label{text-align:center;font-size:10px;color:var(--text-muted);letter-spacing:.1em;padding:8px 0 6px;background:var(--deep)}
+
+.app{max-width:640px;margin:0 auto;padding:44px 20px 140px}
 
 /* HEADER */
-.header{text-align:center;margin-bottom:44px}
-.eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:20px;padding:5px 14px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.header{text-align:center;margin-bottom:40px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:20px;padding:5px 14px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,50px);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:10px}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,5vw,48px);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:10px}
 h1 em{font-style:italic;color:var(--gold)}
-.header-desc{font-size:12px;color:var(--text-muted);line-height:1.75;max-width:440px;margin:0 auto 16px}
+.header-desc{font-size:12px;color:var(--text-muted);line-height:1.75;max-width:440px;margin:0 auto 14px}
 .time-pill{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:10px;color:var(--text-muted);letter-spacing:.08em}
 .time-pill::before{content:'⏱';font-size:11px}
-.trust-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;flex-wrap:wrap}
-.trust-item{font-size:10px;color:var(--text-dim);letter-spacing:.06em;display:flex;align-items:center;gap:5px}
+.trust-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:12px;flex-wrap:wrap}
+.trust-item{font-size:10px;color:var(--text-dim);letter-spacing:.05em;display:flex;align-items:center;gap:5px}
 .trust-item::before{content:'✓';color:var(--green);font-size:11px}
 
-/* STEP PROGRESS DOTS */
-.step-dots{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:32px}
+/* STEP DOTS */
+.step-dots{display:flex;align-items:center;justify-content:center;margin-bottom:28px}
 .sdot{width:8px;height:8px;border-radius:50%;background:var(--surface3);border:1px solid var(--border);transition:all .3s;flex-shrink:0}
 .sdot.done{background:var(--gold);border-color:var(--gold)}
 .sdot.active{background:var(--gold-dim);border-color:var(--gold);width:24px;border-radius:4px}
 .sdot-line{width:20px;height:1px;background:var(--border)}
 .sdot-line.done{background:var(--gold-border)}
 
-/* ASSESSMENT CARDS — cleaner, less technical */
-.a-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:26px 24px 22px;margin-bottom:10px;transition:border-color .2s}
+/* QUESTION CARDS */
+.a-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px 22px 20px;margin-bottom:10px;transition:border-color .2s}
 .a-card:hover{border-color:rgba(255,255,255,0.1)}
-.a-num{font-size:10px;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;margin-bottom:6px}
-.a-question{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.5vw,22px);font-weight:400;color:var(--text);line-height:1.35;margin-bottom:16px}
-.a-hint{font-size:11px;color:var(--text-dim);font-style:italic;margin-top:-10px;margin-bottom:14px;letter-spacing:.03em}
+.a-num{font-size:10px;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;margin-bottom:5px}
+.a-question{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.5vw,21px);font-weight:400;color:var(--text);line-height:1.35;margin-bottom:14px}
+.a-hint{font-size:11px;color:var(--text-dim);font-style:italic;margin-top:-8px;margin-bottom:13px;letter-spacing:.03em}
 
 /* INPUTS */
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -61,26 +64,26 @@ h1 em{font-style:italic;color:var(--gold)}
 input[type=text],input[type=number],input[type=email]{width:100%;background:var(--deep);border:1.5px solid var(--border);border-radius:6px;padding:12px 14px;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
 input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,0.07)}
 input.filled{border-color:rgba(201,169,110,0.25)}
-input.err{border-color:var(--red)!important}
+input.field-err{border-color:var(--red)!important}
 input::placeholder{color:var(--text-dim)}
 .pfx-wrap{position:relative}.pfx{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none}.pfx-wrap input{padding-left:25px}
 .err-msg{font-size:10px;color:var(--red);margin-top:-3px;display:none}.err-msg.show{display:block}
 
 /* CHANNEL GRID */
+.ch-hint-text{font-size:10px;color:var(--text-muted);margin-bottom:10px;letter-spacing:.04em}
 .ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 @media(max-width:420px){.ch-grid{grid-template-columns:repeat(2,1fr)}}
-.ch-card{position:relative;background:var(--deep);border:1.5px solid var(--border);border-radius:6px;padding:14px 10px 11px;cursor:pointer;transition:border-color .2s,background .2s,transform .1s;user-select:none;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+.ch-card{position:relative;background:var(--deep);border:1.5px solid var(--border);border-radius:6px;padding:14px 10px 11px;cursor:pointer;user-select:none;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;transition:border-color .2s,background .2s,transform .1s}
 .ch-card:hover{border-color:var(--gold-border);background:var(--surface2)}
 .ch-card:active{transform:scale(.97)}
 .ch-card.on{border-color:var(--gold);background:var(--gold-dim)}
 .ch-chk{position:absolute;top:7px;right:7px;width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);background:var(--surface3);display:flex;align-items:center;justify-content:center;font-size:9px;transition:all .2s;color:transparent}
 .ch-card.on .ch-chk{background:var(--gold);border-color:var(--gold);color:var(--black)}
 .ch-icon{font-size:22px;line-height:1;pointer-events:none}
-.ch-name{font-size:10px;letter-spacing:.05em;color:var(--text-muted);pointer-events:none;line-height:1.3}
+.ch-name{font-size:10px;color:var(--text-muted);pointer-events:none;line-height:1.3}
 .ch-card.on .ch-name{color:var(--gold-light)}
-.ch-hint-text{font-size:10px;color:var(--text-muted);margin-bottom:10px;letter-spacing:.04em}
 
-/* SCALE — friendlier version */
+/* SCALE */
 .scale-row{display:flex;gap:6px}
 .sb{flex:1;padding:14px 0;background:var(--deep);border:1.5px solid var(--border);border-radius:6px;cursor:pointer;text-align:center;transition:all .2s;user-select:none}
 .sb:hover{border-color:var(--gold-border)}
@@ -93,42 +96,40 @@ input::placeholder{color:var(--text-dim)}
 .sb[data-v="5"].on{background:var(--red-dim);border-color:var(--red)}.sb[data-v="5"].on .sb-num{color:var(--red)}
 .scale-desc-text{font-size:11px;color:var(--text-muted);text-align:center;margin-top:9px;min-height:14px;font-style:italic}
 
-/* OPTION PILLS — larger, more conversational */
-.op-pills{display:flex;flex-direction:column;gap:8px}
-.op-pill{background:var(--deep);border:1.5px solid var(--border);border-radius:6px;padding:13px 15px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:12px;user-select:none}
+/* OPTION PILLS */
+.op-pills{display:flex;flex-direction:column;gap:7px}
+.op-pill{background:var(--deep);border:1.5px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:11px;user-select:none}
 .op-pill:hover{border-color:var(--gold-border)}
 .op-pill.on{border-color:var(--gold);background:var(--gold-dim)}
-.op-radio{width:17px;height:17px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);background:var(--surface3);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.op-radio{width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);background:var(--surface3);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .op-pill.on .op-radio{background:var(--gold);border-color:var(--gold)}
 .op-pill.on .op-radio::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--black)}
-.op-txt{font-size:12px;color:var(--text-muted);line-height:1.45}
+.op-txt{font-size:12px;color:var(--text-muted);line-height:1.4}
 .op-txt strong{display:block;font-size:13px;color:var(--text);font-weight:400;margin-bottom:1px}
 .op-pill.on .op-txt{color:var(--gold)}.op-pill.on .op-txt strong{color:var(--gold-light)}
 
 /* CONTACT CAPTURE */
-.contact-card{background:linear-gradient(135deg,rgba(201,169,110,.06),rgba(201,169,110,.02));border:1px solid rgba(201,169,110,.2);border-radius:var(--r);padding:24px;margin-bottom:10px}
-.contact-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--text);margin-bottom:6px}
-.contact-sub{font-size:11px;color:var(--text-muted);margin-bottom:18px;line-height:1.65}
+.contact-card{background:linear-gradient(135deg,rgba(201,169,110,.06),rgba(201,169,110,.02));border:1px solid rgba(201,169,110,.2);border-radius:var(--r);padding:22px;margin-bottom:10px}
+.contact-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--text);margin-bottom:5px}
+.contact-sub{font-size:11px;color:var(--text-muted);margin-bottom:16px;line-height:1.65}
 
 /* SUBMIT */
-.submit-area{margin-top:10px}
 .err-sum{background:var(--red-dim);border:1px solid rgba(212,85,85,.3);border-radius:6px;padding:12px 14px;font-size:11px;color:var(--red);margin-bottom:12px;display:none}.err-sum.show{display:block}
 .submit-btn{width:100%;padding:17px;background:var(--gold);border:none;border-radius:6px;color:var(--black);font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:10px}
 .submit-btn:hover{background:var(--gold-light);box-shadow:0 4px 20px rgba(201,169,110,.2)}
 .privacy-note{text-align:center;font-size:10px;color:var(--text-dim);margin-top:8px;letter-spacing:.05em}
 
-/* ===== RESULTS ===== */
-#results{display:none;animation:fadeUp .5s ease forwards}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+/* ===== RESULTS PAGE ===== */
+.results-page { padding-top: 0; }
 
-/* SCORE */
-.score-hero{text-align:center;padding:36px 24px 32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;position:relative;overflow:hidden}
+/* SCORE HERO */
+.score-hero{text-align:center;padding:34px 22px 28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;position:relative;overflow:hidden}
 .score-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.score-eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
-.score-name{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,36px);font-weight:300;color:var(--text);margin-bottom:20px}
-.score-badge{display:inline-flex;flex-direction:column;align-items:center;background:var(--surface2);border:2px solid var(--gold-border);border-radius:12px;padding:16px 28px;margin-bottom:20px}
+.score-eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
+.score-name{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,4vw,34px);font-weight:300;color:var(--text);margin-bottom:18px}
+.score-badge{display:inline-flex;flex-direction:column;align-items:center;background:var(--surface2);border:2px solid var(--gold-border);border-radius:10px;padding:14px 26px;margin-bottom:18px}
 .score-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
-.score-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;line-height:1;color:var(--gold)}
+.score-num{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:600;line-height:1;color:var(--gold)}
 .score-denom{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--text-muted)}
 .score-grade{font-size:11px;color:var(--text-muted);margin-top:4px;letter-spacing:.06em}
 .score-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
@@ -138,116 +139,119 @@ input::placeholder{color:var(--text-dim)}
 .ss-val{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,34px);color:var(--red);font-weight:600}
 .ss-sub{font-size:10px;color:var(--text-dim);margin-top:3px}
 
-/* WHERE THIS IS COMING FROM */
-.sources-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:10px}
-.src-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--text);margin-bottom:14px}
-.src-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+/* SOURCES */
+.res-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:10px}
+.res-card-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--text);margin-bottom:14px}
+.src-item{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.04)}
 .src-item:last-child{border-bottom:none}
-.src-bar-wrap{flex:1;height:4px;background:var(--surface3);border-radius:2px;overflow:hidden;position:relative}
-.src-bar{height:100%;border-radius:2px;background:var(--red);transition:width .8s ease}
+.src-bar-wrap{flex:1;height:4px;background:var(--surface3);border-radius:2px;overflow:hidden}
+.src-bar{height:100%;border-radius:2px;background:var(--red);width:0;transition:width .8s ease}
 .src-label{font-size:11px;color:var(--text-muted);min-width:130px}
-.src-pct{font-size:11px;color:var(--red);min-width:36px;text-align:right}
-.src-val{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--red);min-width:80px;text-align:right}
+.src-pct{font-size:11px;color:var(--red);min-width:34px;text-align:right}
+.src-val{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--red);min-width:78px;text-align:right}
 
-/* RECOVERY TEASER */
-.recovery-preview{background:linear-gradient(160deg,rgba(92,184,138,.06),rgba(92,184,138,.02));border:1px solid rgba(92,184,138,.22);border-radius:var(--r);padding:22px;margin-bottom:10px}
-.rp-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(92,184,138,.09);border:1px solid rgba(92,184,138,.2);border-radius:20px;padding:3px 11px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
-.rp-title{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,26px);font-weight:300;color:var(--text);margin-bottom:8px}
+/* RECOVERY */
+.recovery-card{background:linear-gradient(160deg,rgba(92,184,138,.06),rgba(92,184,138,.02));border:1px solid rgba(92,184,138,.22);border-radius:var(--r);padding:22px;margin-bottom:10px}
+.rp-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(92,184,138,.09);border:1px solid rgba(92,184,138,.2);border-radius:20px;padding:3px 11px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:11px}
+.rp-title{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,26px);font-weight:300;color:var(--text);margin-bottom:7px}
 .rp-title em{font-style:italic;color:var(--green)}
-.rp-body{font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:16px}
-.rp-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.rp-body{font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:14px}
+.rp-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 @media(max-width:440px){.rp-trio{grid-template-columns:1fr}}
-.rp-tile{background:rgba(92,184,138,.05);border:1px solid rgba(92,184,138,.12);border-radius:5px;padding:14px 10px;text-align:center}
-.rp-period{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
-.rp-val{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,26px);color:var(--green);font-weight:600}
-.rp-sub{font-size:10px;color:var(--text-dim);margin-top:3px}
+.rp-tile{background:rgba(92,184,138,.05);border:1px solid rgba(92,184,138,.12);border-radius:5px;padding:13px 10px;text-align:center}
+.rp-period{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px}
+.rp-val{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,3vw,24px);color:var(--green);font-weight:600}
+.rp-sub{font-size:10px;color:var(--text-dim);margin-top:2px}
 .how-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 @media(max-width:420px){.how-items{grid-template-columns:1fr}}
-.how-item{background:rgba(92,184,138,.04);border:1px solid rgba(92,184,138,.1);border-radius:5px;padding:13px;display:flex;gap:10px;align-items:flex-start}
+.how-item{background:rgba(92,184,138,.04);border:1px solid rgba(92,184,138,.1);border-radius:5px;padding:12px;display:flex;gap:9px;align-items:flex-start}
 .how-icon{font-size:16px;flex-shrink:0;margin-top:1px}
 .how-text{font-size:11px;color:var(--text-muted);line-height:1.55}
 .how-text strong{display:block;color:var(--text);font-weight:400;margin-bottom:2px;font-size:11px}
 
-/* DEMO CTA — PRIMARY */
-.demo-cta{background:var(--surface);border:1px solid rgba(201,169,110,.3);border-radius:var(--r);padding:30px 24px;margin-bottom:10px;text-align:center;position:relative;overflow:hidden}
+/* DEMO CTA */
+.demo-cta{background:var(--surface);border:1px solid rgba(201,169,110,.3);border-radius:var(--r);padding:28px 22px;margin-bottom:10px;text-align:center;position:relative;overflow:hidden}
 .demo-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.demo-cta-eyebrow{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.demo-cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3.5vw,32px);font-weight:300;color:var(--text);margin-bottom:10px;line-height:1.25}
-.demo-cta-title em{font-style:italic;color:var(--gold)}
-.demo-cta-body{font-size:12px;color:var(--text-muted);line-height:1.75;max-width:420px;margin:0 auto 22px}
-.giveaway-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.2);border-radius:6px;padding:10px 16px;margin-bottom:20px;font-size:11px;color:var(--gold-light);line-height:1.55;text-align:left}
-.giveaway-pill::before{content:'🎁';font-size:16px;flex-shrink:0}
+.demo-eyebrow{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:13px}
+.demo-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3.5vw,30px);font-weight:300;color:var(--text);margin-bottom:9px;line-height:1.25}
+.demo-title em{font-style:italic;color:var(--gold)}
+.demo-body{font-size:12px;color:var(--text-muted);line-height:1.75;max-width:400px;margin:0 auto 18px}
+.giveaway-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.18);border-radius:6px;padding:10px 14px;margin-bottom:18px;font-size:11px;color:var(--gold-light);line-height:1.55;text-align:left;width:100%;max-width:440px}
+.giveaway-icon{font-size:18px;flex-shrink:0}
 .cta-btns{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto}
 .btn-primary{background:var(--gold);color:var(--black);border:none;padding:16px 28px;font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border-radius:5px;transition:background .2s,box-shadow .2s;text-decoration:none;display:block;text-align:center}
 .btn-primary:hover{background:var(--gold-light);box-shadow:0 4px 24px rgba(201,169,110,.25)}
 .btn-secondary{background:transparent;color:var(--text-muted);border:1px solid var(--border);padding:13px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:5px;transition:all .2s;width:100%}
 .btn-secondary:hover{border-color:var(--gold-border);color:var(--text)}
-.demo-note{font-size:10px;color:var(--text-dim);margin-top:12px;letter-spacing:.05em}
+.demo-note{font-size:10px;color:var(--text-dim);margin-top:10px;letter-spacing:.05em}
 
-/* FLOAT BAR */
-.float-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,12,.97);border-top:1px solid var(--border);backdrop-filter:blur(14px);padding:12px 20px;display:none;z-index:150;animation:slideUp .35s ease}
-@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.retake-btn{display:block;width:100%;text-align:center;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dim);cursor:pointer;background:none;border:none;font-family:'DM Mono',monospace;padding:12px;margin-top:4px;transition:color .2s}
+.retake-btn:hover{color:var(--text-muted)}
+
+/* FLOATING BAR — hidden until results */
+.float-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,12,.97);border-top:1px solid var(--border);backdrop-filter:blur(14px);padding:12px 20px;z-index:150}
+.float-bar.hidden{display:none !important}
 .float-inner{max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.float-left{font-size:10px;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase}
-.float-num{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--red);margin-left:8px}
+.float-left{font-size:10px;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:4px}
+.float-num{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--red);margin-left:6px}
 .float-btn{background:var(--gold);color:var(--black);border:none;padding:10px 20px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background .2s;white-space:nowrap}
 .float-btn:hover{background:var(--gold-light)}
 
-/* EMAIL MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:300;display:none;align-items:center;justify-content:center;padding:20px}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:300;align-items:center;justify-content:center;padding:20px;display:none}
 .modal-overlay.open{display:flex}
 .modal{background:var(--surface);border:1px solid var(--gold-border);border-radius:var(--r);padding:28px;max-width:400px;width:100%;animation:fadeUp .3s ease}
-.modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--text);margin-bottom:8px}
-.modal-sub{font-size:11px;color:var(--text-muted);margin-bottom:18px;line-height:1.65}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--text);margin-bottom:6px}
+.modal-sub{font-size:11px;color:var(--text-muted);margin-bottom:16px;line-height:1.65}
 .modal-label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;display:block}
 .modal input[type=email]{width:100%;background:var(--deep);border:1.5px solid var(--border);border-radius:5px;padding:11px 13px;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;margin-bottom:14px}
 .modal input[type=email]:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.07)}
 .modal input[type=email]::placeholder{color:var(--text-dim)}
-.modal-btns{display:flex;gap:8px;margin-top:4px}
+.modal-btns{display:flex;gap:8px}
 .modal-send{flex:1;background:var(--gold);color:var(--black);border:none;padding:12px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background .2s}
 .modal-send:hover{background:var(--gold-light)}
 .modal-cancel{background:transparent;color:var(--text-muted);border:1px solid var(--border);padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .2s}
 .modal-cancel:hover{border-color:var(--gold-border);color:var(--text)}
 
 /* TOAST */
-.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--surface3);border:1px solid var(--gold-border);border-radius:4px;padding:8px 16px;font-size:11px;color:var(--gold);letter-spacing:.07em;transition:transform .3s ease;z-index:400;white-space:nowrap}
+.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--surface3);border:1px solid var(--gold-border);border-radius:4px;padding:8px 16px;font-size:11px;color:var(--gold);letter-spacing:.07em;transition:transform .3s ease;z-index:400;white-space:nowrap;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- STICKY PROGRESS -->
+<!-- PROGRESS BAR (always visible) -->
 <div class="prog-wrap"><div class="prog-fill" id="prog"></div></div>
 <div class="prog-label" id="prog-label">Step 1 of 7 — Practice Info</div>
 
 <div class="app">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="eyebrow"><div class="eyebrow-dot"></div>MedSpa Performance Assessment</div>
-    <h1>How Much Revenue Is<br><em>Slipping Through?</em></h1>
-    <p class="header-desc">Answer 7 quick questions about how your practice handles new inquiries. We'll calculate exactly what you could be missing — and how to get it back.</p>
-    <div class="time-pill">Takes less than 2 minutes</div>
-    <div class="trust-row">
-      <div class="trust-item">Confidential Assessment</div>
-      <div class="trust-item">No obligation</div>
-      <div class="trust-item">Instant results</div>
+  <!-- ============ FORM SCREEN ============ -->
+  <div id="form-screen" class="screen">
+
+    <div class="header">
+      <div class="eyebrow"><div class="eyebrow-dot"></div>MedSpa Performance Assessment</div>
+      <h1>How Much Revenue Is<br><em>Slipping Through?</em></h1>
+      <p class="header-desc">Answer 7 quick questions about how your practice handles new inquiries. We'll calculate exactly what you could be missing — and how to get it back.</p>
+      <div class="time-pill">Takes less than 2 minutes</div>
+      <div class="trust-row">
+        <div class="trust-item">Confidential</div>
+        <div class="trust-item">No obligation</div>
+        <div class="trust-item">Instant results</div>
+      </div>
     </div>
-  </div>
 
-  <!-- STEP DOTS -->
-  <div class="step-dots" id="step-dots">
-    <div class="sdot active" id="dot0"></div><div class="sdot-line" id="dl0"></div>
-    <div class="sdot" id="dot1"></div><div class="sdot-line" id="dl1"></div>
-    <div class="sdot" id="dot2"></div><div class="sdot-line" id="dl2"></div>
-    <div class="sdot" id="dot3"></div><div class="sdot-line" id="dl3"></div>
-    <div class="sdot" id="dot4"></div><div class="sdot-line" id="dl4"></div>
-    <div class="sdot" id="dot5"></div><div class="sdot-line" id="dl5"></div>
-    <div class="sdot" id="dot6"></div>
-  </div>
-
-  <!-- FORM -->
-  <div id="form-wrap">
+    <!-- STEP DOTS -->
+    <div class="step-dots">
+      <div class="sdot active" id="dot0"></div><div class="sdot-line" id="dl0"></div>
+      <div class="sdot" id="dot1"></div><div class="sdot-line" id="dl1"></div>
+      <div class="sdot" id="dot2"></div><div class="sdot-line" id="dl2"></div>
+      <div class="sdot" id="dot3"></div><div class="sdot-line" id="dl3"></div>
+      <div class="sdot" id="dot4"></div><div class="sdot-line" id="dl4"></div>
+      <div class="sdot" id="dot5"></div><div class="sdot-line" id="dl5"></div>
+      <div class="sdot" id="dot6"></div>
+    </div>
 
     <!-- Q1 -->
     <div class="a-card">
@@ -265,14 +269,17 @@ input::placeholder{color:var(--text-dim)}
       <div class="a-question">How many new client inquiries does your practice receive each day?</div>
       <div class="a-hint">Across all channels — calls, texts, DMs, website forms, etc.</div>
       <div class="field-row">
-        <div class="field"><div class="fl"><span class="req-dot"></span>Inquiries Per Day</div><input type="number" id="daily_inquiries" placeholder="e.g. 12" min="1" oninput="onInput(this)" required><div class="err-msg" id="err_inq">Please enter your daily inquiry count</div></div>
-        <div class="field"><div class="fl">Days Open / Week</div>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:1px">
-            <div class="op-pills" id="days-pills" style="gap:5px">
-              <div class="op-pill" data-val="5" onclick="selDays(this)" style="padding:9px 12px"><div class="op-radio"></div><div class="op-txt" style="font-size:11px"><strong style="font-size:11px">5 days</strong>Mon–Fri</div></div>
-              <div class="op-pill on" data-val="6" onclick="selDays(this)" style="padding:9px 12px"><div class="op-radio"></div><div class="op-txt" style="font-size:11px"><strong style="font-size:11px">6 days</strong>Mon–Sat</div></div>
-              <div class="op-pill" data-val="7" onclick="selDays(this)" style="padding:9px 12px"><div class="op-radio"></div><div class="op-txt" style="font-size:11px"><strong style="font-size:11px">7 days</strong>Every day</div></div>
-            </div>
+        <div class="field">
+          <div class="fl"><span class="req-dot"></span>Inquiries Per Day</div>
+          <input type="number" id="daily_inquiries" placeholder="e.g. 12" min="1" oninput="onInput(this)">
+          <div class="err-msg" id="err_inq">Please enter your daily inquiry count</div>
+        </div>
+        <div class="field">
+          <div class="fl">Days Open Per Week</div>
+          <div class="op-pills" id="days-pills" style="gap:5px">
+            <div class="op-pill" data-val="5" onclick="selDays(this)" style="padding:9px 12px"><div class="op-radio"></div><div class="op-txt" style="font-size:11px"><strong style="font-size:11px">5 days</strong>Mon–Fri</div></div>
+            <div class="op-pill on" data-val="6" onclick="selDays(this)" style="padding:9px 12px"><div class="op-radio"></div><div class="op-txt" style="font-size:11px"><strong style="font-size:11px">6 days</strong>Mon–Sat</div></div>
+            <div class="op-pill" data-val="7" onclick="selDays(this)" style="padding:9px 12px"><div class="op-radio"></div><div class="op-txt" style="font-size:11px"><strong style="font-size:11px">7 days</strong>Every day</div></div>
           </div>
         </div>
       </div>
@@ -282,7 +289,7 @@ input::placeholder{color:var(--text-dim)}
     <div class="a-card">
       <div class="a-num">Question 03</div>
       <div class="a-question">Where do your new client inquiries typically come from?</div>
-      <div class="a-hint">Select all that apply to your practice</div>
+      <div class="a-hint">Select all that apply</div>
       <div class="ch-grid" id="ch-grid">
         <div class="ch-card" data-ch="phone" onclick="toggleCh(this)"><div class="ch-chk">✓</div><div class="ch-icon">📞</div><div class="ch-name">Phone Calls</div></div>
         <div class="ch-card" data-ch="website" onclick="toggleCh(this)"><div class="ch-chk">✓</div><div class="ch-icon">🌐</div><div class="ch-name">Website / Forms</div></div>
@@ -301,8 +308,8 @@ input::placeholder{color:var(--text-dim)}
         <div class="op-pill on" data-val="nothing" onclick="selPill('ah-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Nothing until we open</strong>Inquiries wait until the next business day</div></div>
         <div class="op-pill" data-val="voicemail" onclick="selPill('ah-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Voicemail only</strong>They leave a message, we call back when available</div></div>
         <div class="op-pill" data-val="manual" onclick="selPill('ah-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>We check messages when we can</strong>Someone manually follows up, inconsistently</div></div>
-        <div class="op-pill" data-val="auto_limited" onclick="selPill('ah-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Auto-reply sent</strong>An automated message goes out, no booking</div></div>
-        <div class="op-pill" data-val="full_auto" onclick="selPill('ah-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Fully automated system</strong>Inquiries are handled and followed up automatically</div></div>
+        <div class="op-pill" data-val="auto_limited" onclick="selPill('ah-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Auto-reply sent</strong>Automated message goes out, no booking</div></div>
+        <div class="op-pill" data-val="full_auto" onclick="selPill('ah-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Fully automated system</strong>Inquiries are handled automatically</div></div>
       </div>
     </div>
 
@@ -325,8 +332,13 @@ input::placeholder{color:var(--text-dim)}
       <div class="a-num">Question 06</div>
       <div class="a-question">What's the approximate value of a new client's first visit?</div>
       <div class="field-row">
-        <div class="field"><div class="fl"><span class="req-dot"></span>First Visit Value</div><div class="pfx-wrap"><span class="pfx">$</span><input type="number" id="first_visit" placeholder="e.g. 350" min="0" oninput="onInput(this)" required></div><div class="err-msg" id="err_fv">Please enter first visit value</div></div>
-        <div class="field"><div class="fl">How long do clients typically stay?</div>
+        <div class="field">
+          <div class="fl"><span class="req-dot"></span>First Visit Value</div>
+          <div class="pfx-wrap"><span class="pfx">$</span><input type="number" id="first_visit" placeholder="e.g. 350" min="0" oninput="onInput(this)"></div>
+          <div class="err-msg" id="err_fv">Please enter first visit value</div>
+        </div>
+        <div class="field">
+          <div class="fl">How long do clients typically stay?</div>
           <div class="op-pills" id="life-pills" style="gap:5px">
             <div class="op-pill" data-val="6" onclick="selLife(this)" style="padding:8px 12px"><div class="op-radio"></div><div class="op-txt" style="font-size:11px"><strong style="font-size:11px">Under 6 months</strong></div></div>
             <div class="op-pill on" data-val="18" onclick="selLife(this)" style="padding:8px 12px"><div class="op-radio"></div><div class="op-txt" style="font-size:11px"><strong style="font-size:11px">6–24 months</strong></div></div>
@@ -340,18 +352,16 @@ input::placeholder{color:var(--text-dim)}
     <div class="a-card">
       <div class="a-num">Question 07</div>
       <div class="a-question">When a new inquiry doesn't book right away, what typically happens next?</div>
-      <div class="op-pills" id="fu-pills" style="margin-bottom:20px">
+      <div class="op-pills" id="fu-pills">
         <div class="op-pill on" data-val="none" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Nothing — the lead goes cold</strong>No structured follow-up process</div></div>
         <div class="op-pill" data-val="manual_rare" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Someone tries to reach out eventually</strong>Inconsistent, depends on the person</div></div>
         <div class="op-pill" data-val="manual_regular" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>We follow up regularly</strong>Team makes a point to reach back out</div></div>
         <div class="op-pill" data-val="partial_auto" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Partial automation</strong>Some automated messages, not complete</div></div>
         <div class="op-pill" data-val="full_auto" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Fully automated follow-up</strong>System handles multi-step follow-up automatically</div></div>
       </div>
-
-      <!-- Hidden bk/nu defaults — not shown to client, set programmatically -->
     </div>
 
-    <!-- CONTACT CAPTURE -->
+    <!-- CONTACT -->
     <div class="contact-card">
       <div class="contact-title">Where should we send your results?</div>
       <div class="contact-sub">We'll email you a full breakdown with your numbers and a personalized recovery plan. No spam, no obligation.</div>
@@ -362,17 +372,18 @@ input::placeholder{color:var(--text-dim)}
     </div>
 
     <div class="err-sum" id="err-sum">⚠ Please fill in Daily Inquiries and First Visit Value to see your results.</div>
-    <div class="submit-area">
+    <div style="margin-top:0">
       <button class="submit-btn" onclick="calculate()">
         <span>See My Results</span><span style="font-size:15px">→</span>
       </button>
       <div class="privacy-note">🔒 Your information is confidential and will never be shared or sold.</div>
     </div>
 
-  </div><!-- /form-wrap -->
+  </div><!-- /form-screen -->
 
-  <!-- ====== RESULTS ====== -->
-  <div id="results">
+
+  <!-- ============ RESULTS SCREEN ============ -->
+  <div id="results-screen" class="screen hidden results-page">
 
     <!-- SCORE HERO -->
     <div class="score-hero">
@@ -397,17 +408,17 @@ input::placeholder{color:var(--text-dim)}
       </div>
     </div>
 
-    <!-- WHERE THIS IS COMING FROM -->
-    <div class="sources-card">
-      <div class="src-title">Where This Is Coming From</div>
+    <!-- WHERE IT'S COMING FROM -->
+    <div class="res-card">
+      <div class="res-card-title">Where This Is Coming From</div>
       <div id="sources-list"></div>
     </div>
 
-    <!-- RECOVERY PREVIEW -->
-    <div class="recovery-preview">
+    <!-- RECOVERY -->
+    <div class="recovery-card">
       <div class="rp-tag">Recovery Potential</div>
       <div class="rp-title">Here's What Could Be <em>Recovered</em></div>
-      <div class="rp-body">Based on your assessment, this is what an automated response and nurture system would realistically bring back — at a conservative estimate.</div>
+      <div class="rp-body">Based on your assessment, here's what an automated response and nurture system would realistically bring back — at a conservative estimate.</div>
       <div class="rp-trio">
         <div class="rp-tile"><div class="rp-period">Monthly Recovery</div><div class="rp-val" id="rv-mo">—</div><div class="rp-sub">Conservative</div></div>
         <div class="rp-tile"><div class="rp-period">Annual Recovery</div><div class="rp-val" id="rv-yr">—</div><div class="rp-sub">Conservative</div></div>
@@ -416,17 +427,20 @@ input::placeholder{color:var(--text-dim)}
       <div class="how-items">
         <div class="how-item"><div class="how-icon">⚡</div><div class="how-text"><strong>Instant 24/7 Response</strong>Every inquiry gets an immediate reply — no more leads waiting overnight</div></div>
         <div class="how-item"><div class="how-icon">📅</div><div class="how-text"><strong>Automatic Booking</strong>AI qualifies and books appointments without staff involvement</div></div>
-        <div class="how-item"><div class="how-icon">🔁</div><div class="how-text"><strong>Lead Nurture Sequences</strong>Leads that don't book immediately are followed up automatically over days and weeks</div></div>
+        <div class="how-item"><div class="how-icon">🔁</div><div class="how-text"><strong>Lead Nurture Sequences</strong>Leads that don't book are followed up automatically over days and weeks</div></div>
         <div class="how-item"><div class="how-icon">📋</div><div class="how-text"><strong>Smart Escalation</strong>High-value leads are flagged to your team with full context — ready to close</div></div>
       </div>
     </div>
 
-    <!-- PRIMARY CTA -->
+    <!-- DEMO CTA -->
     <div class="demo-cta" id="demo-anchor">
-      <div class="demo-cta-eyebrow">See How To Recover These Bookings</div>
-      <div class="demo-cta-title">Get a Live Demo<br><em>Built Around Your Numbers</em></div>
-      <div class="demo-cta-body">We'll walk you through exactly how this works for your MedSpa — using the numbers from your assessment. Takes 10 minutes.</div>
-      <div class="giveaway-pill">Practices that complete the demo are entered into our selection to receive a fully installed <strong>AI Patient Reactivation System</strong> — at no cost.</div>
+      <div class="demo-eyebrow">See How To Recover These Bookings</div>
+      <div class="demo-title">Get a Live Demo<br><em>Built Around Your Numbers</em></div>
+      <div class="demo-body">We'll walk you through exactly how this works for your MedSpa — using the numbers from your assessment. Takes 10 minutes.</div>
+      <div class="giveaway-pill">
+        <span class="giveaway-icon">🎁</span>
+        <span>Practices that complete the demo are entered into our selection to receive a fully installed <strong>AI Patient Reactivation System</strong> — at no cost.</span>
+      </div>
       <div class="cta-btns">
         <a href="https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn" target="_blank" class="btn-primary">📅 Schedule My Live Demo</a>
         <button class="btn-secondary" onclick="openModal()">✉ Email Me My Results</button>
@@ -434,16 +448,20 @@ input::placeholder{color:var(--text-dim)}
       <div class="demo-note">No commitment required · 10-minute session · Personalized to your practice</div>
     </div>
 
-    <button style="display:block;width:100%;text-align:center;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dim);cursor:pointer;background:none;border:none;font-family:'DM Mono',monospace;padding:12px;margin-top:4px;transition:color .2s" onclick="resetAll()">← Retake Assessment</button>
+    <button class="retake-btn" onclick="resetAll()">← Retake Assessment</button>
 
-  </div><!-- /results -->
+  </div><!-- /results-screen -->
+
 </div><!-- /app -->
 
-<!-- FLOATING BAR -->
-<div class="float-bar" id="float-bar">
+<!-- FLOATING BAR — hidden by default, shown only after results -->
+<div class="float-bar hidden" id="float-bar">
   <div class="float-inner">
-    <div class="float-left">Est. Monthly Loss: <span class="float-num" id="float-num">—</span></div>
-    <button class="float-btn" onclick="document.getElementById('demo-anchor').scrollIntoView({behavior:'smooth'})">See How This Gets Fixed →</button>
+    <div class="float-left">
+      <span>Est. Monthly Loss:</span>
+      <span class="float-num" id="float-num">—</span>
+    </div>
+    <button class="float-btn" onclick="scrollToDemo()">See How This Gets Fixed →</button>
   </div>
 </div>
 
@@ -451,7 +469,7 @@ input::placeholder{color:var(--text-dim)}
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-title">Email Me My Results</div>
-    <div class="modal-sub">We'll send your full assessment with your numbers, recovery projections, and a demo booking link.</div>
+    <div class="modal-sub">We'll send your full assessment, recovery projections, and a demo booking link.</div>
     <label class="modal-label">Your Email Address</label>
     <input type="email" id="modal-email" placeholder="you@yourmedspa.com">
     <div class="modal-btns">
@@ -461,189 +479,359 @@ input::placeholder{color:var(--text-dim)}
   </div>
 </div>
 
+<!-- TOAST — only shown on explicit user action -->
 <div class="toast" id="toast">Email draft opened ✓</div>
 
 <script>
-let missedScale=3,_recData={},clientLifetime=18;
-let daysOpenVal=6;
-const G=id=>document.getElementById(id),fmt=n=>'$'+Math.round(n).toLocaleString(),fd=(n,d=1)=>parseFloat(n).toFixed(d);
-let _calcCache={};
+  // ── State ──────────────────────────────────────────────
+  var missedScale = 3;
+  var clientLifetime = 18;
+  var daysOpenVal = 6;
+  var _recData = {};
+  var _calcCache = {};
 
-const progLabels=['Practice Info','Daily Volume','Lead Channels','After-Hours','Missed Calls','Revenue Values','Follow-Up System'];
+  // ── Helpers ────────────────────────────────────────────
+  function G(id){ return document.getElementById(id); }
+  function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
+  function fd(n, d){ d = d||1; return parseFloat(n).toFixed(d); }
 
-function getPill(g){const e=document.querySelector('#'+g+' .op-pill.on');return e?e.dataset.val:null}
-function toggleCh(c){c.classList.toggle('on');updateProg()}
-function selPill(g,el){document.querySelectorAll('#'+g+' .op-pill').forEach(p=>p.classList.remove('on'));el.classList.add('on');updateProg()}
-function selDays(el){document.querySelectorAll('#days-pills .op-pill').forEach(p=>p.classList.remove('on'));el.classList.add('on');daysOpenVal=parseInt(el.dataset.val);updateProg()}
-function selLife(el){document.querySelectorAll('#life-pills .op-pill').forEach(p=>p.classList.remove('on'));el.classList.add('on');clientLifetime=parseInt(el.dataset.val);updateProg()}
-function selScale(btn){document.querySelectorAll('.sb').forEach(b=>b.classList.remove('on'));btn.classList.add('on');missedScale=parseInt(btn.dataset.v);const d={1:'Rarely — most calls are answered',2:'Sometimes — occasional misses',3:'Often — phones go unanswered during busy periods',4:'Regularly — calls are missed throughout the day',5:'Very often — significant daily call volume is missed'};G('scale-desc').textContent=d[missedScale];updateProg()}
-function onInput(inp){inp.classList.toggle('filled',!!inp.value);inp.classList.remove('err');updateProg()}
+  function getPill(groupId){
+    var el = document.querySelector('#' + groupId + ' .op-pill.on');
+    return el ? el.dataset.val : null;
+  }
 
-function updateProg(){
-  const checks=[!!(G('spa_name').value||G('owner_name').value),!!G('daily_inquiries').value,document.querySelectorAll('.ch-card.on').length>0,!!getPill('ah-pills'),!!missedScale,!!G('first_visit').value,!!getPill('fu-pills')];
-  const n=checks.filter(Boolean).length;
-  G('prog').style.width=Math.round(n/7*100)+'%';
-  const activeStep=checks.findIndex(v=>!v);
-  G('prog-label').textContent='Step '+(activeStep<0?7:activeStep+1)+' of 7 — '+(progLabels[activeStep<0?6:activeStep]);
-  checks.forEach((v,i)=>{
-    const dot=G('dot'+i),line=G('dl'+i);
-    if(dot){dot.classList.toggle('done',v);dot.classList.toggle('active',!v&&(i===0||checks[i-1]));}
-    if(line)line.classList.toggle('done',v);
-  });
-}
+  // ── Show / Hide screens ────────────────────────────────
+  function showScreen(id){
+    document.querySelectorAll('.screen').forEach(function(s){ s.classList.add('hidden'); });
+    G(id).classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
-function getLeakRate(){
-  const ah=getPill('ah-pills')||'nothing',fu=getPill('fu-pills')||'none';
-  let b=0.18;
-  b+=({nothing:.16,voicemail:.10,manual:.07,auto_limited:.03,full_auto:0}[ah]??0.10);
-  b+=(missedScale-1)*.04;
-  b+=({none:.09,manual_rare:.06,manual_regular:.02,partial_auto:.01,full_auto:0}[fu]??0.05);
-  b+=.06; // default booking friction (phone-heavy assumption for self-assessment)
-  return Math.min(b,.72);
-}
-function getConvRate(){return({none:.25,basic:.30,partial:.37,strong:.44}[getPill('fu-pills')])||.28}
+  // ── Float bar ──────────────────────────────────────────
+  function showFloatBar(monthlyLoss){
+    G('float-num').textContent = fmt(monthlyLoss);
+    G('float-bar').classList.remove('hidden');
+  }
 
-function getChData(){
-  const sel=document.querySelectorAll('.ch-card.on');
-  if(!sel.length)return null;
-  const meta={phone:{name:'Phone Calls',icon:'📞',ds:.30},website:{name:'Website / Forms',icon:'🌐',ds:.20},instagram:{name:'Instagram',icon:'📸',ds:.22},google:{name:'Google',icon:'🔍',ds:.15},text:{name:'Text / SMS',icon:'💬',ds:.08},referral:{name:'Referrals',icon:'🤝',ds:.05}};
-  let chs=[],tv=0;
-  sel.forEach(card=>{const ch=card.dataset.ch;chs.push({ch,...meta[ch]})});
-  const ss=chs.reduce((a,c)=>a+c.ds,0);
-  return chs.map(c=>({...c,share:c.ds/ss}));
-}
+  function scrollToDemo(){
+    var el = G('demo-anchor');
+    if(el) el.scrollIntoView({ behavior: 'smooth' });
+  }
 
-function calcScore(lr,fu,ah,ms){
-  // score out of 100 — lower leak rate = higher score
-  let score=100;
-  score-=Math.round(lr*80);
-  score=Math.max(score,12);
-  return score;
-}
+  // ── Interactions ───────────────────────────────────────
+  function toggleCh(card){
+    card.classList.toggle('on');
+    updateProg();
+  }
 
-function calculate(){
-  const inq=parseFloat(G('daily_inquiries').value),fv=parseFloat(G('first_visit').value);
-  let err=false;
-  if(!inq){G('err_inq').classList.add('show');G('daily_inquiries').classList.add('err');err=true;}else{G('err_inq').classList.remove('show');G('daily_inquiries').classList.remove('err')}
-  if(!fv){G('err_fv').classList.add('show');G('first_visit').classList.add('err');err=true;}else{G('err_fv').classList.remove('show');G('first_visit').classList.remove('err')}
-  if(err){G('err-sum').classList.add('show');return}
-  G('err-sum').classList.remove('show');
+  function selPill(groupId, el){
+    document.querySelectorAll('#' + groupId + ' .op-pill').forEach(function(p){ p.classList.remove('on'); });
+    el.classList.add('on');
+    updateProg();
+  }
 
-  const spaName=G('spa_name').value||'Your Practice';
-  const owner=G('owner_name').value||'the owner';
-  const vfreq=1.5,moSpend=fv*vfreq,clife=clientLifetime;
-  const lr=getLeakRate(),cr=getConvRate(),dpm=(daysOpenVal/7)*30.4;
-  const liDay=inq*lr,lcDay=liDay*cr,dayL=lcDay*fv,moL=dayL*dpm,yrL=moL*12;
-  const ltv=moSpend*clife,lcMo=lcDay*dpm,ltvMo=lcMo*ltv,ltvYr=ltvMo*12,ltv3=ltvYr*3;
+  function selDays(el){
+    document.querySelectorAll('#days-pills .op-pill').forEach(function(p){ p.classList.remove('on'); });
+    el.classList.add('on');
+    daysOpenVal = parseInt(el.dataset.val);
+    updateProg();
+  }
 
-  // Score
-  const score=calcScore(lr);
-  const grade=score>=80?'Strong Performance':score>=60?'Moderate Gaps Identified':score>=40?'Significant Leakage Detected':'Critical Revenue Leakage';
+  function selLife(el){
+    document.querySelectorAll('#life-pills .op-pill').forEach(function(p){ p.classList.remove('on'); });
+    el.classList.add('on');
+    clientLifetime = parseInt(el.dataset.val);
+    updateProg();
+  }
 
-  _calcCache={inq,fv,daysOpenVal,vfreq,clife,moSpend,spaName,owner,lr,cr,dpm,liDay,lcDay,dayL,moL,yrL,ltv,lcMo,ltvMo,ltvYr,ltv3,score};
+  function selScale(btn){
+    document.querySelectorAll('.sb').forEach(function(b){ b.classList.remove('on'); });
+    btn.classList.add('on');
+    missedScale = parseInt(btn.dataset.v);
+    var descs = {
+      1: 'Rarely — most calls are answered',
+      2: 'Sometimes — occasional misses',
+      3: 'Often — phones go unanswered during busy periods',
+      4: 'Regularly — calls are missed throughout the day',
+      5: 'Very often — significant call volume is missed daily'
+    };
+    G('scale-desc').textContent = descs[missedScale];
+    updateProg();
+  }
 
-  G('r-name').textContent=spaName;
-  G('r-score').textContent=score;
-  G('r-grade').textContent=grade;
-  G('r-clients').textContent=Math.round(lcMo);
-  G('r-mo').textContent=fmt(moL);
+  function onInput(inp){
+    inp.classList.toggle('filled', !!inp.value);
+    inp.classList.remove('field-err');
+    updateProg();
+  }
 
-  // Sources
-  const ah=getPill('ah-pills')||'nothing';
-  const ahShare={nothing:.38,voicemail:.28,manual:.22,auto_limited:.08,full_auto:.02}[ah]??0.30;
-  const mcShare=Math.min((missedScale-1)*.10,.40);
-  const fuShare={none:.22,manual_rare:.15,manual_regular:.06,partial_auto:.03,full_auto:.01}[getPill('fu-pills')||'none']??0.15;
-  const bkShare=0.08;
-  const srcList=[
-    {label:'Missed calls',share:mcShare,val:moL*mcShare},
-    {label:'After-hours inquiries',share:ahShare,val:moL*ahShare},
-    {label:'Delayed follow-up',share:fuShare,val:moL*fuShare},
-    {label:'Booking friction',share:bkShare,val:moL*bkShare}
-  ].sort((a,b)=>b.share-a.share);
-  const maxShare=srcList[0].share;
-  G('sources-list').innerHTML=srcList.map(s=>`
-    <div class="src-item">
-      <div class="src-label">${s.label}</div>
-      <div class="src-bar-wrap"><div class="src-bar" style="width:${Math.round(s.share/maxShare*100)}%"></div></div>
-      <div class="src-pct">${Math.round(s.share*100)}%</div>
-      <div class="src-val">${fmt(s.val)}/mo</div>
-    </div>`).join('');
+  // ── Progress dots ──────────────────────────────────────
+  var progLabels = ['Practice Info','Daily Volume','Lead Channels','After-Hours','Missed Calls','Revenue Values','Follow-Up System'];
 
-  // Recovery
-  const ahLS={nothing:.38,voicemail:.28,manual:.22,auto_limited:.08,full_auto:.02}[ah]??0.30;
-  const mcS=Math.min((missedScale-1)*.10,.40);
-  const fuLS={none:.22,manual_rare:.15,manual_regular:.06,partial_auto:.03,full_auto:.01}[getPill('fu-pills')||'none']??0.15;
-  const escS=0.08;
-  const src={ah:moL*ahLS,mc:moL*mcS,nu:moL*fuLS,es:moL*escS};
-  const con={ah:.70,mc:.60,nu:.50,es:.55},hi={ah:.92,mc:.82,nu:.72,es:.80};
-  const conRec={ah:src.ah*con.ah,mc:src.mc*con.mc,nu:src.nu*con.nu,es:src.es*con.es};
-  const hiRec={ah:src.ah*hi.ah,mc:src.mc*hi.mc,nu:src.nu*hi.nu,es:src.es*hi.es};
-  const conTotal=conRec.ah+conRec.mc+conRec.nu+conRec.es;
-  const hiTotal=hiRec.ah+hiRec.mc+hiRec.nu+hiRec.es;
-  _recData={conTotal,hiTotal,conRec,hiRec,dpm};
+  function updateProg(){
+    var checks = [
+      !!(G('spa_name').value || G('owner_name').value),
+      !!G('daily_inquiries').value,
+      document.querySelectorAll('.ch-card.on').length > 0,
+      !!getPill('ah-pills'),
+      !!missedScale,
+      !!G('first_visit').value,
+      !!getPill('fu-pills')
+    ];
+    var n = checks.filter(Boolean).length;
+    G('prog').style.width = Math.round(n / 7 * 100) + '%';
 
-  G('rv-mo').textContent=fmt(conTotal);
-  G('rv-yr').textContent=fmt(conTotal*12);
-  G('rv-hi').textContent=fmt(hiTotal);
+    var activeIdx = checks.indexOf(false);
+    var labelIdx = activeIdx < 0 ? 6 : activeIdx;
+    G('prog-label').textContent = 'Step ' + (activeIdx < 0 ? 7 : activeIdx + 1) + ' of 7 — ' + progLabels[labelIdx];
 
-  G('float-num').textContent=fmt(moL);
-  G('float-bar').style.display='block';
+    checks.forEach(function(v, i){
+      var dot = G('dot' + i);
+      var line = G('dl' + i);
+      if(dot){
+        dot.classList.toggle('done', v);
+        dot.classList.toggle('active', !v && (i === 0 || checks[i-1] === true));
+      }
+      if(line) line.classList.toggle('done', v);
+    });
+  }
 
- alert("Webhook firing");
-  fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807", {
-    method: "POST",
-    mode: "no-cors",
-headers: {
-"Content-Type": "application/json"
-},
-body: JSON.stringify({
-email: ownerEmail,
-spa_name: spaName,
-owner_name: ownerName,
-monthly_loss: monthlyLoss
-})
-});
+  // ── Calc engine (unchanged math) ──────────────────────
+  function getLeakRate(){
+    var ah = getPill('ah-pills') || 'nothing';
+    var fu = getPill('fu-pills') || 'none';
+    var ahMap = { nothing: 0.16, voicemail: 0.10, manual: 0.07, auto_limited: 0.03, full_auto: 0 };
+    var fuMap = { none: 0.09, manual_rare: 0.06, manual_regular: 0.02, partial_auto: 0.01, full_auto: 0 };
+    var b = 0.18;
+    b += (ahMap[ah] !== undefined ? ahMap[ah] : 0.10);
+    b += (missedScale - 1) * 0.04;
+    b += (fuMap[fu] !== undefined ? fuMap[fu] : 0.05);
+    b += 0.06;
+    return Math.min(b, 0.72);
+  }
 
-  G('form-wrap').style.display='none';
-  G('results').style.display='block';
-  G('prog').style.width='100%';
-  G('prog-label').textContent='Assessment Complete';
-  window.scrollTo({top:0,behavior:'smooth'});
+  function getConvRate(){
+    var map = { none: 0.25, basic: 0.30, partial: 0.37, strong: 0.44 };
+    var fu = getPill('fu-pills');
+    return (fu && map[fu]) ? map[fu] : 0.28;
+  }
 
-  // Animate source bars with slight delay
-  setTimeout(()=>document.querySelectorAll('.src-bar').forEach(b=>{const w=b.style.width;b.style.width='0';setTimeout(()=>b.style.width=w,50)}),200);
-}
+  function getChData(){
+    var sel = document.querySelectorAll('.ch-card.on');
+    if(!sel.length) return null;
+    var meta = {
+      phone:     { name:'Phone Calls',    icon:'📞', ds: 0.30 },
+      website:   { name:'Website/Forms',  icon:'🌐', ds: 0.20 },
+      instagram: { name:'Instagram',      icon:'📸', ds: 0.22 },
+      google:    { name:'Google',         icon:'🔍', ds: 0.15 },
+      text:      { name:'Text/SMS',       icon:'💬', ds: 0.08 },
+      referral:  { name:'Referrals',      icon:'🤝', ds: 0.05 }
+    };
+    var chs = [];
+    sel.forEach(function(card){
+      var ch = card.dataset.ch;
+      if(meta[ch]) chs.push({ ch: ch, name: meta[ch].name, icon: meta[ch].icon, ds: meta[ch].ds });
+    });
+    var ss = chs.reduce(function(a,c){ return a + c.ds; }, 0);
+    return chs.map(function(c){ return Object.assign({}, c, { share: c.ds / ss }); });
+  }
 
-function resetAll(){G('form-wrap').style.display='block';G('results').style.display='none';G('float-bar').style.display='none';G('prog').style.width='0%';G('prog-label').textContent='Step 1 of 7 — Practice Info';window.scrollTo({top:0,behavior:'smooth'})}
-function openModal(){const e=G('contact_email');if(e&&e.value)G('modal-email').value=e.value;G('modal').classList.add('open')}
-function closeModal(){G('modal').classList.remove('open')}
-function sendEmail(){
-  const email=G('modal-email').value;
-  if(!email){G('modal-email').style.borderColor='var(--red)';return}
-  const c=_calcCache;
-  const subject=`Your MedSpa Performance Assessment — ${c.spaName}`;
-  const body=`Hi ${c.owner.split(' ')[0]},\n\nHere are your MedSpa Performance Assessment results for ${c.spaName}.\n\n` +
-    `PERFORMANCE SCORE: ${c.score}/100\n\n` +
-    `ESTIMATED MISSED OPPORTUNITIES\n` +
-    `• New clients missed per month: ${Math.round(c.lcMo)}\n` +
-    `• Monthly revenue impact: ${fmt(c.moL)}\n` +
-    `• Annual revenue impact: ${fmt(c.yrL)}\n\n` +
-    `LIFETIME VALUE IMPACT\n` +
-    `• Annual LTV loss: ${fmt(c.ltvYr)}\n` +
-    `• 3-Year compounded: ${fmt(c.ltv3)}\n\n` +
-    `RECOVERY POTENTIAL\n` +
-    `• Conservative monthly recovery: ${fmt(_recData.conTotal)}\n` +
-    `• High-end monthly recovery: ${fmt(_recData.hiTotal)}\n\n` +
-    `NEXT STEP\n` +
-    `Schedule a 10-minute live demo to see exactly how this works for ${c.spaName}:\n` +
-    `https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn\n\n` +
-    `Practices that complete the demo are entered into our selection to receive a fully installed AI Patient Reactivation System at no cost.\n\n` +
-    `This assessment was generated by EnterGreatAI.\nAll figures are conservative estimates based on industry benchmarks.`;
-  window.location.href=`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  closeModal();const t=G('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);
-}
+  // ── Main calculate ─────────────────────────────────────
+  function calculate(){
+    var inq = parseFloat(G('daily_inquiries').value);
+    var fv  = parseFloat(G('first_visit').value);
+    var hasErr = false;
 
-updateProg();
+    if(!inq){
+      G('err_inq').classList.add('show');
+      G('daily_inquiries').classList.add('field-err');
+      hasErr = true;
+    } else {
+      G('err_inq').classList.remove('show');
+      G('daily_inquiries').classList.remove('field-err');
+    }
+
+    if(!fv){
+      G('err_fv').classList.add('show');
+      G('first_visit').classList.add('field-err');
+      hasErr = true;
+    } else {
+      G('err_fv').classList.remove('show');
+      G('first_visit').classList.remove('field-err');
+    }
+
+    if(hasErr){
+      G('err-sum').classList.add('show');
+      G('daily_inquiries').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    G('err-sum').classList.remove('show');
+
+    var spaName  = G('spa_name').value  || 'Your Practice';
+    var owner    = G('owner_name').value || 'the owner';
+    var vfreq    = 1.5;
+    var clife    = clientLifetime;
+    var moSpend  = fv * vfreq;
+    var lr       = getLeakRate();
+    var cr       = getConvRate();
+    var dpm      = (daysOpenVal / 7) * 30.4;
+
+    var liDay    = inq * lr;
+    var lcDay    = liDay * cr;
+    var dayL     = lcDay * fv;
+    var moL      = dayL * dpm;
+    var yrL      = moL * 12;
+    var ltv      = moSpend * clife;
+    var lcMo     = lcDay * dpm;
+    var ltvMo    = lcMo * ltv;
+    var ltvYr    = ltvMo * 12;
+    var ltv3     = ltvYr * 3;
+
+    var score = Math.max(12, 100 - Math.round(lr * 80));
+    var grade = score >= 80 ? 'Strong Performance' : score >= 60 ? 'Moderate Gaps Identified' : score >= 40 ? 'Significant Leakage Detected' : 'Critical Revenue Leakage';
+
+    _calcCache = { inq:inq, fv:fv, spaName:spaName, owner:owner, lr:lr, cr:cr, dpm:dpm, moL:moL, yrL:yrL, ltv:ltv, lcMo:lcMo, ltvMo:ltvMo, ltvYr:ltvYr, ltv3:ltv3, score:score };
+
+    // Fill results
+    G('r-name').textContent    = spaName;
+    G('r-score').textContent   = score;
+    G('r-grade').textContent   = grade;
+    G('r-clients').textContent = Math.round(lcMo);
+    G('r-mo').textContent      = fmt(moL);
+
+    // Sources
+    var ah = getPill('ah-pills') || 'nothing';
+    var ahShareMap = { nothing: 0.38, voicemail: 0.28, manual: 0.22, auto_limited: 0.08, full_auto: 0.02 };
+    var fuShareMap = { none: 0.22, manual_rare: 0.15, manual_regular: 0.06, partial_auto: 0.03, full_auto: 0.01 };
+    var ahShare = ahShareMap[ah] !== undefined ? ahShareMap[ah] : 0.30;
+    var mcShare = Math.min((missedScale - 1) * 0.10, 0.40);
+    var fuVal = getPill('fu-pills') || 'none';
+    var fuShare = fuShareMap[fuVal] !== undefined ? fuShareMap[fuVal] : 0.15;
+    var bkShare = 0.08;
+
+    var srcList = [
+      { label: 'Missed calls',          share: mcShare, val: moL * mcShare },
+      { label: 'After-hours inquiries',  share: ahShare, val: moL * ahShare },
+      { label: 'Delayed follow-up',      share: fuShare, val: moL * fuShare },
+      { label: 'Booking friction',       share: bkShare, val: moL * bkShare }
+    ].sort(function(a, b){ return b.share - a.share; });
+
+    var maxShare = srcList[0].share;
+    G('sources-list').innerHTML = srcList.map(function(s){
+      return '<div class="src-item">' +
+        '<div class="src-label">' + s.label + '</div>' +
+        '<div class="src-bar-wrap"><div class="src-bar" data-width="' + Math.round(s.share / maxShare * 100) + '"></div></div>' +
+        '<div class="src-pct">' + Math.round(s.share * 100) + '%</div>' +
+        '<div class="src-val">' + fmt(s.val) + '/mo</div>' +
+        '</div>';
+    }).join('');
+
+    // Recovery
+    var src = { ah: moL * ahShare, mc: moL * mcShare, nu: moL * fuShare, es: moL * bkShare };
+    var con = { ah: 0.70, mc: 0.60, nu: 0.50, es: 0.55 };
+    var hi  = { ah: 0.92, mc: 0.82, nu: 0.72, es: 0.80 };
+    var conRec = { ah: src.ah*con.ah, mc: src.mc*con.mc, nu: src.nu*con.nu, es: src.es*con.es };
+    var hiRec  = { ah: src.ah*hi.ah,  mc: src.mc*hi.mc,  nu: src.nu*hi.nu,  es: src.es*hi.es  };
+    var conTotal = conRec.ah + conRec.mc + conRec.nu + conRec.es;
+    var hiTotal  = hiRec.ah  + hiRec.mc  + hiRec.nu  + hiRec.es;
+    _recData = { conTotal: conTotal, hiTotal: hiTotal };
+
+    G('rv-mo').textContent = fmt(conTotal);
+    G('rv-yr').textContent = fmt(conTotal * 12);
+    G('rv-hi').textContent = fmt(hiTotal);
+
+    // Webhook
+    var contactEmail = G('contact_email') ? G('contact_email').value : '';
+    fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        spa_name:      spaName,
+        owner_name:    owner,
+        email:         contactEmail,
+        daily_inquiries: inq,
+        monthly_loss:  Math.round(moL),
+        annual_loss:   Math.round(yrL),
+        lost_clients:  Math.round(lcMo),
+        ltv_loss:      Math.round(ltvYr)
+      })
+    }).catch(function(){});
+
+    // Switch to results screen
+    showScreen('results-screen');
+    G('prog').style.width = '100%';
+    G('prog-label').textContent = 'Assessment Complete';
+
+    // Show float bar
+    showFloatBar(moL);
+
+    // Animate source bars after DOM is visible
+    setTimeout(function(){
+      document.querySelectorAll('.src-bar').forEach(function(bar){
+        var w = bar.getAttribute('data-width');
+        if(w) bar.style.width = w + '%';
+      });
+    }, 150);
+  }
+
+  // ── Reset ──────────────────────────────────────────────
+  function resetAll(){
+    G('float-bar').classList.add('hidden');
+    G('prog').style.width = '0%';
+    G('prog-label').textContent = 'Step 1 of 7 — Practice Info';
+    showScreen('form-screen');
+  }
+
+  // ── Modal ──────────────────────────────────────────────
+  function openModal(){
+    var emailField = G('contact_email');
+    if(emailField && emailField.value) G('modal-email').value = emailField.value;
+    G('modal').classList.add('open');
+  }
+
+  function closeModal(){
+    G('modal').classList.remove('open');
+  }
+
+  function sendEmail(){
+    var email = G('modal-email').value;
+    if(!email){
+      G('modal-email').style.borderColor = 'var(--red)';
+      return;
+    }
+    var c = _calcCache;
+    var subject = 'Your MedSpa Performance Assessment — ' + c.spaName;
+    var body =
+      'Hi ' + c.owner.split(' ')[0] + ',\n\n' +
+      'Here are your MedSpa Performance Assessment results for ' + c.spaName + '.\n\n' +
+      'PERFORMANCE SCORE: ' + c.score + '/100\n\n' +
+      'ESTIMATED MISSED OPPORTUNITIES\n' +
+      '• New clients missed per month: ' + Math.round(c.lcMo) + '\n' +
+      '• Monthly revenue impact: ' + fmt(c.moL) + '\n' +
+      '• Annual revenue impact: ' + fmt(c.yrL) + '\n\n' +
+      'LIFETIME VALUE IMPACT\n' +
+      '• Annual LTV loss: ' + fmt(c.ltvYr) + '\n' +
+      '• 3-Year compounded: ' + fmt(c.ltv3) + '\n\n' +
+      'RECOVERY POTENTIAL\n' +
+      '• Conservative monthly recovery: ' + fmt(_recData.conTotal) + '\n' +
+      '• High-end monthly recovery: ' + fmt(_recData.hiTotal) + '\n\n' +
+      'NEXT STEP\n' +
+      'Schedule a 10-minute live demo:\n' +
+      'https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn\n\n' +
+      'Practices that complete the demo are entered into our selection to receive a fully installed AI Patient Reactivation System at no cost.\n\n' +
+      'This assessment was generated by EnterGreatAI.\nAll figures are conservative estimates.';
+
+    window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    closeModal();
+
+    // Show toast only on explicit user action
+    var t = G('toast');
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2500);
+  }
+
+  // Init
+  updateProg();
 </script>
 </body>
 </html>
