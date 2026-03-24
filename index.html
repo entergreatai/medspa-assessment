@@ -443,7 +443,7 @@ input::placeholder{color:var(--text-dim)}
       </div>
       <div class="cta-btns">
         <a href="https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn" target="_blank" class="btn-primary">📅 Schedule My Live Demo</a>
-        <button class="btn-secondary" onclick="openModal()">✉ Email Me My Results</button>
+        <button class="btn-secondary" onclick="openModal()">✉ Get Results by Email</button>
       </div>
       <div class="demo-note">No commitment required · 10-minute session · Personalized to your practice</div>
     </div>
@@ -468,19 +468,38 @@ input::placeholder{color:var(--text-dim)}
 <!-- EMAIL MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
-    <div class="modal-title">Email Me My Results</div>
-    <div class="modal-sub">We'll send your full assessment, recovery projections, and a demo booking link.</div>
-    <label class="modal-label">Your Email Address</label>
-    <input type="email" id="modal-email" placeholder="you@yourmedspa.com">
-    <div class="modal-btns">
-      <button class="modal-cancel" onclick="closeModal()">Cancel</button>
-      <button class="modal-send" onclick="sendEmail()">Send My Results →</button>
+
+    <!-- STEP 1: enter email -->
+    <div id="modal-step1">
+      <div class="modal-title">Get Your Results by Email</div>
+      <div class="modal-sub">Enter your email and we'll send your full assessment summary with recovery numbers and your demo link.</div>
+      <label class="modal-label">Your Email Address</label>
+      <input type="email" id="modal-email" placeholder="you@yourmedspa.com">
+      <div id="modal-email-err" style="font-size:10px;color:var(--red);margin-top:-10px;margin-bottom:10px;display:none">Please enter a valid email address</div>
+      <div class="modal-btns">
+        <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+        <button class="modal-send" onclick="sendEmail()">Send My Results →</button>
+      </div>
     </div>
+
+    <!-- STEP 2: confirmation + copy summary -->
+    <div id="modal-step2" style="display:none">
+      <div style="text-align:center;margin-bottom:16px">
+        <div style="font-size:28px;margin-bottom:8px">✅</div>
+        <div class="modal-title" style="margin-bottom:4px">Results Sent</div>
+        <div style="font-size:11px;color:var(--text-muted);line-height:1.6">We've received your info — check your inbox shortly.<br>In the meantime, here's your summary to copy or save.</div>
+      </div>
+      <div id="modal-summary" style="background:var(--deep);border:1px solid var(--border);border-radius:5px;padding:14px;font-size:11px;color:var(--text-muted);line-height:1.8;white-space:pre-wrap;max-height:220px;overflow-y:auto;margin-bottom:14px;font-family:'DM Mono',monospace;letter-spacing:.02em"></div>
+      <div class="modal-btns">
+        <button class="modal-cancel" onclick="closeModal()" style="flex:1">Close</button>
+        <button class="modal-send" onclick="copySummary()">Copy Summary</button>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- TOAST — only shown on explicit user action -->
-<div class="toast" id="toast">Email draft opened ✓</div>
+<div class="toast" id="toast">Copied to clipboard ✓</div>
 
 <script>
   // ── State ──────────────────────────────────────────────
@@ -784,8 +803,13 @@ input::placeholder{color:var(--text-dim)}
 
   // ── Modal ──────────────────────────────────────────────
   function openModal(){
+    // Pre-fill email from contact field if available
     var emailField = G('contact_email');
     if(emailField && emailField.value) G('modal-email').value = emailField.value;
+    // Always show step 1 when opening
+    G('modal-step1').style.display = 'block';
+    G('modal-step2').style.display = 'none';
+    G('modal-email-err').style.display = 'none';
     G('modal').classList.add('open');
   }
 
@@ -794,38 +818,92 @@ input::placeholder{color:var(--text-dim)}
   }
 
   function sendEmail(){
-    var email = G('modal-email').value;
-    if(!email){
+    var email = G('modal-email').value.trim();
+    if(!email || email.indexOf('@') < 1){
+      G('modal-email-err').style.display = 'block';
       G('modal-email').style.borderColor = 'var(--red)';
       return;
     }
+    G('modal-email-err').style.display = 'none';
+    G('modal-email').style.borderColor = '';
+
     var c = _calcCache;
-    var subject = 'Your MedSpa Performance Assessment — ' + c.spaName;
-    var body =
-      'Hi ' + c.owner.split(' ')[0] + ',\n\n' +
-      'Here are your MedSpa Performance Assessment results for ' + c.spaName + '.\n\n' +
-      'PERFORMANCE SCORE: ' + c.score + '/100\n\n' +
-      'ESTIMATED MISSED OPPORTUNITIES\n' +
-      '• New clients missed per month: ' + Math.round(c.lcMo) + '\n' +
-      '• Monthly revenue impact: ' + fmt(c.moL) + '\n' +
-      '• Annual revenue impact: ' + fmt(c.yrL) + '\n\n' +
+
+    // Build plain-text summary shown in modal and sent via webhook
+    var summary =
+      'MEDSPA PERFORMANCE ASSESSMENT\n' +
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+      'Practice: ' + c.spaName + '\n' +
+      'Performance Score: ' + c.score + ' / 100\n' +
+      '(' + (G('r-grade') ? G('r-grade').textContent : '') + ')\n\n' +
+      'MISSED OPPORTUNITIES\n' +
+      '• ' + Math.round(c.lcMo) + ' new clients / month\n' +
+      '• ' + fmt(c.moL) + ' monthly revenue impact\n' +
+      '• ' + fmt(c.yrL) + ' annual revenue impact\n\n' +
       'LIFETIME VALUE IMPACT\n' +
-      '• Annual LTV loss: ' + fmt(c.ltvYr) + '\n' +
-      '• 3-Year compounded: ' + fmt(c.ltv3) + '\n\n' +
+      '• ' + fmt(c.ltvYr) + ' annual LTV loss\n' +
+      '• ' + fmt(c.ltv3) + ' over 3 years\n\n' +
       'RECOVERY POTENTIAL\n' +
-      '• Conservative monthly recovery: ' + fmt(_recData.conTotal) + '\n' +
-      '• High-end monthly recovery: ' + fmt(_recData.hiTotal) + '\n\n' +
-      'NEXT STEP\n' +
-      'Schedule a 10-minute live demo:\n' +
+      '• ' + fmt(_recData.conTotal) + ' / month (conservative)\n' +
+      '• ' + fmt(_recData.hiTotal) + ' / month (high recovery)\n\n' +
+      'BOOK YOUR LIVE DEMO\n' +
       'https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn\n\n' +
-      'Practices that complete the demo are entered into our selection to receive a fully installed AI Patient Reactivation System at no cost.\n\n' +
-      'This assessment was generated by EnterGreatAI.\nAll figures are conservative estimates.';
+      'Generated by EnterGreatAI · entergreatai.com';
 
-    window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    closeModal();
+    // Send email address + summary to webhook so GHL can send the actual email
+    fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        spa_name:      c.spaName,
+        owner_name:    c.owner,
+        email:         email,
+        daily_inquiries: c.inq,
+        monthly_loss:  Math.round(c.moL),
+        annual_loss:   Math.round(c.yrL),
+        lost_clients:  Math.round(c.lcMo),
+        ltv_loss:      Math.round(c.ltvYr),
+        score:         c.score,
+        email_requested: true,
+        summary:       summary
+      })
+    }).catch(function(){});
 
-    // Show toast only on explicit user action
+    // Show step 2 with summary
+    G('modal-summary').textContent = summary;
+    G('modal-step1').style.display = 'none';
+    G('modal-step2').style.display = 'block';
+  }
+
+  function copySummary(){
+    var text = G('modal-summary').textContent;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        showToast('Copied to clipboard ✓');
+      }).catch(function(){
+        fallbackCopy(text);
+      });
+    } else {
+      fallbackCopy(text);
+    }
+  }
+
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try { document.execCommand('copy'); showToast('Copied to clipboard ✓'); }
+    catch(e) { showToast('Select text above to copy'); }
+    document.body.removeChild(ta);
+  }
+
+  function showToast(msg){
     var t = G('toast');
+    t.textContent = msg;
     t.classList.add('show');
     setTimeout(function(){ t.classList.remove('show'); }, 2500);
   }
