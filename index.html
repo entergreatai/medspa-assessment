@@ -200,7 +200,7 @@ input::placeholder{color:var(--text-dim)}
 /* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:300;align-items:center;justify-content:center;padding:20px;display:none}
 .modal-overlay.open{display:flex}
-.modal{background:var(--surface);border:1px solid var(--gold-border);border-radius:var(--r);padding:28px;max-width:400px;width:100%;animation:fadeUp .3s ease}
+.modal{background:var(--surface);border:1px solid var(--gold-border);border-radius:var(--r);padding:28px;max-width:520px;width:100%;animation:fadeUp .3s ease;max-height:90vh;overflow-y:auto}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--text);margin-bottom:6px}
 .modal-sub{font-size:11px;color:var(--text-muted);margin-bottom:16px;line-height:1.65}
@@ -213,10 +213,21 @@ input::placeholder{color:var(--text-dim)}
 .modal-send:hover{background:var(--gold-light)}
 .modal-cancel{background:transparent;color:var(--text-muted);border:1px solid var(--border);padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .2s}
 .modal-cancel:hover{border-color:var(--gold-border);color:var(--text)}
+/* Summary cards inside modal */
+.sum-section{background:var(--deep);border:1px solid var(--border);border-radius:5px;padding:14px 16px}
+.sum-section-title{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.sum-section-title::before{content:'◆';font-size:6px}
+.sum-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.sum-row:last-child{border-bottom:none}
+.sum-key{font-size:11px;color:var(--text-muted)}
+.sum-val{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text);text-align:right}
+.sum-val.red{color:var(--red)}
+.sum-val.green{color:var(--green)}
+.sum-val.gold{color:var(--gold)}
 
 /* TOAST */
-.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--surface3);border:1px solid var(--gold-border);border-radius:4px;padding:8px 16px;font-size:11px;color:var(--gold);letter-spacing:.07em;transition:transform .3s ease;z-index:400;white-space:nowrap;pointer-events:none}
-.toast.show{transform:translateX(-50%) translateY(0)}
+.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%) translateY(200px);background:var(--surface3);border:1px solid var(--gold-border);border-radius:4px;padding:8px 16px;font-size:11px;color:var(--gold);letter-spacing:.07em;transition:transform .3s ease;z-index:400;white-space:nowrap;pointer-events:none;visibility:hidden}
+.toast.show{transform:translateX(-50%) translateY(0);visibility:visible}
 </style>
 </head>
 <body>
@@ -482,24 +493,27 @@ input::placeholder{color:var(--text-dim)}
       </div>
     </div>
 
-    <!-- STEP 2: confirmation + copy summary -->
+    <!-- STEP 2: confirmation + readable summary -->
     <div id="modal-step2" style="display:none">
-      <div style="text-align:center;margin-bottom:16px">
-        <div style="font-size:28px;margin-bottom:8px">✅</div>
-        <div class="modal-title" style="margin-bottom:4px">Results Sent</div>
-        <div style="font-size:11px;color:var(--text-muted);line-height:1.6">We've received your info — check your inbox shortly.<br>In the meantime, here's your summary to copy or save.</div>
+      <div style="text-align:center;margin-bottom:20px">
+        <div style="font-size:32px;margin-bottom:10px">✅</div>
+        <div class="modal-title" style="margin-bottom:6px">Results Sent</div>
+        <div style="font-size:11px;color:var(--text-muted);line-height:1.7">Your info has been received — check your inbox shortly.<br>Here's your full summary below.</div>
       </div>
-      <div id="modal-summary" style="background:var(--deep);border:1px solid var(--border);border-radius:5px;padding:14px;font-size:11px;color:var(--text-muted);line-height:1.8;white-space:pre-wrap;max-height:220px;overflow-y:auto;margin-bottom:14px;font-family:'DM Mono',monospace;letter-spacing:.02em"></div>
+
+      <!-- Readable summary cards instead of plain text box -->
+      <div id="modal-summary-cards" style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px"></div>
+
       <div class="modal-btns">
         <button class="modal-cancel" onclick="closeModal()" style="flex:1">Close</button>
-        <button class="modal-send" onclick="copySummary()">Copy Summary</button>
+        <button class="modal-send" onclick="copySummary()">📋 Copy Summary</button>
       </div>
     </div>
 
   </div>
 </div>
 
-<div class="toast" id="toast">Copied to clipboard ✓</div>
+<div class="toast" id="toast">Copied ✓</div>
 
 <script>
   // ── State ──────────────────────────────────────────────
@@ -759,20 +773,20 @@ input::placeholder{color:var(--text-dim)}
     G('rv-yr').textContent = fmt(conTotal * 12);
     G('rv-hi').textContent = fmt(hiTotal);
 
-    // Webhook
+    // Webhook — $ formatted values for GHL
     var contactEmail = G('contact_email') ? G('contact_email').value : '';
     fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        spa_name:      spaName,
-        owner_name:    owner,
-        email:         contactEmail,
-        daily_inquiries: inq,
-        monthly_loss:  Math.round(moL),
-        annual_loss:   Math.round(yrL),
-        lost_clients:  Math.round(lcMo),
-        ltv_loss:      Math.round(ltvYr)
+        spa_name:        spaName,
+        owner_name:      owner,
+        email:           contactEmail,
+        daily_inquiries: Math.round(inq),
+        monthly_loss:    '$' + Math.round(moL).toLocaleString(),
+        annual_loss:     '$' + Math.round(yrL).toLocaleString(),
+        lost_clients:    Math.round(lcMo),
+        ltv_loss:        '$' + Math.round(ltvYr).toLocaleString()
       })
     }).catch(function(){});
 
@@ -829,57 +843,80 @@ input::placeholder{color:var(--text-dim)}
 
     var c = _calcCache;
 
-    // Build plain-text summary shown in modal and sent via webhook
+    // Build plain-text version for copy/webhook
+    var grade = G('r-grade') ? G('r-grade').textContent : '';
     var summary =
       'MEDSPA PERFORMANCE ASSESSMENT\n' +
       '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
       'Practice: ' + c.spaName + '\n' +
-      'Performance Score: ' + c.score + ' / 100\n' +
-      '(' + (G('r-grade') ? G('r-grade').textContent : '') + ')\n\n' +
+      'Score: ' + c.score + ' / 100  (' + grade + ')\n\n' +
       'MISSED OPPORTUNITIES\n' +
       '• ' + Math.round(c.lcMo) + ' new clients / month\n' +
-      '• ' + fmt(c.moL) + ' monthly revenue impact\n' +
-      '• ' + fmt(c.yrL) + ' annual revenue impact\n\n' +
+      '• ' + fmt(c.moL) + ' monthly revenue loss\n' +
+      '• ' + fmt(c.yrL) + ' annual revenue loss\n\n' +
       'LIFETIME VALUE IMPACT\n' +
       '• ' + fmt(c.ltvYr) + ' annual LTV loss\n' +
       '• ' + fmt(c.ltv3) + ' over 3 years\n\n' +
       'RECOVERY POTENTIAL\n' +
       '• ' + fmt(_recData.conTotal) + ' / month (conservative)\n' +
       '• ' + fmt(_recData.hiTotal) + ' / month (high recovery)\n\n' +
-      'BOOK YOUR LIVE DEMO\n' +
-      'https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn\n\n' +
-      'Generated by EnterGreatAI · entergreatai.com';
+      'DEMO: https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn\n' +
+      'EnterGreatAI';
 
-    // Send email address + summary to webhook so GHL can send the actual email
+    // Send to GHL webhook with $ formatted values
     fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        spa_name:      c.spaName,
-        owner_name:    c.owner,
-        email:         email,
-        daily_inquiries: c.inq,
-        monthly_loss:  Math.round(c.moL),
-        annual_loss:   Math.round(c.yrL),
-        lost_clients:  Math.round(c.lcMo),
-        ltv_loss:      Math.round(c.ltvYr),
-        score:         c.score,
+        spa_name:        c.spaName,
+        owner_name:      c.owner,
+        email:           email,
+        daily_inquiries: Math.round(c.inq),
+        monthly_loss:    '$' + Math.round(c.moL).toLocaleString(),
+        annual_loss:     '$' + Math.round(c.yrL).toLocaleString(),
+        lost_clients:    Math.round(c.lcMo),
+        ltv_loss:        '$' + Math.round(c.ltvYr).toLocaleString(),
+        score:           c.score,
         email_requested: true,
-        summary:       summary
+        summary:         summary
       })
     }).catch(function(){});
 
-    // Show step 2 with summary
-    G('modal-summary').textContent = summary;
+    // Render card-based summary
+    G('modal-summary-cards').dataset.plaintext = summary;
+    G('modal-summary-cards').innerHTML =
+      '<div class="sum-section">' +
+        '<div class="sum-section-title">Practice</div>' +
+        '<div class="sum-row"><div class="sum-key">Name</div><div class="sum-val gold">' + c.spaName + '</div></div>' +
+        '<div class="sum-row"><div class="sum-key">Performance Score</div><div class="sum-val gold">' + c.score + ' / 100</div></div>' +
+        '<div class="sum-row"><div class="sum-key">Rating</div><div class="sum-val" style="font-size:12px;color:var(--text-muted)">' + grade + '</div></div>' +
+      '</div>' +
+      '<div class="sum-section">' +
+        '<div class="sum-section-title">Missed Opportunities</div>' +
+        '<div class="sum-row"><div class="sum-key">Lost clients / month</div><div class="sum-val red">' + Math.round(c.lcMo) + '</div></div>' +
+        '<div class="sum-row"><div class="sum-key">Monthly revenue loss</div><div class="sum-val red">' + fmt(c.moL) + '</div></div>' +
+        '<div class="sum-row"><div class="sum-key">Annual revenue loss</div><div class="sum-val red">' + fmt(c.yrL) + '</div></div>' +
+      '</div>' +
+      '<div class="sum-section">' +
+        '<div class="sum-section-title">Lifetime Value Impact</div>' +
+        '<div class="sum-row"><div class="sum-key">Annual LTV loss</div><div class="sum-val red">' + fmt(c.ltvYr) + '</div></div>' +
+        '<div class="sum-row"><div class="sum-key">3-year compounded</div><div class="sum-val red">' + fmt(c.ltv3) + '</div></div>' +
+      '</div>' +
+      '<div class="sum-section">' +
+        '<div class="sum-section-title">Recovery Potential</div>' +
+        '<div class="sum-row"><div class="sum-key">Conservative / month</div><div class="sum-val green">' + fmt(_recData.conTotal) + '</div></div>' +
+        '<div class="sum-row"><div class="sum-key">High recovery / month</div><div class="sum-val green">' + fmt(_recData.hiTotal) + '</div></div>' +
+      '</div>';
+
     G('modal-step1').style.display = 'none';
     G('modal-step2').style.display = 'block';
   }
 
   function copySummary(){
-    var text = G('modal-summary').textContent;
+    var text = G('modal-summary-cards').dataset.plaintext || '';
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(text).then(function(){
-        showToast('Copied to clipboard ✓');
+        showToast('Copied ✓');
       }).catch(function(){
         fallbackCopy(text);
       });
