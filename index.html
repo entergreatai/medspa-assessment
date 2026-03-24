@@ -589,6 +589,23 @@ function calculate(){
   G('float-num').textContent=fmt(moL);
   G('float-bar').style.display='block';
 
+  fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      spa_name: spaName,
+      owner_name: owner,
+      email: G('contact_email') ? G('contact_email').value : '',
+      daily_inquiries: inq,
+      monthly_loss: Math.round(moL),
+      annual_loss: Math.round(yrL),
+      lost_clients: Math.round(lcMo),
+      ltv_loss: Math.round(ltvYr)
+    })
+  });
+
   G('form-wrap').style.display='none';
   G('results').style.display='block';
   G('prog').style.width='100%';
