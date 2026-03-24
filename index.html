@@ -925,18 +925,6 @@ input::placeholder{color:var(--text-dim)}
     }
   }
 
-  function fallbackCopy(text){
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    try { document.execCommand('copy'); showToast('Copied to clipboard ✓'); }
-    catch(e) { showToast('Select text above to copy'); }
-    document.body.removeChild(ta);
-  }
 
   function showToast(msg){
     var t = G('toast');
