@@ -9,12 +9,12 @@
 :root{
   --gold:#C9A96E;--gold-light:#E8D5B0;--gold-dim:rgba(201,169,110,0.09);--gold-border:rgba(201,169,110,0.25);
   --black:#09090A;--deep:#0E0E10;--surface:#161618;--surface2:#1C1C1E;--surface3:#232326;
-  --border:rgba(255,255,255,0.07);--text:#ECEAE4;--text-muted:#7A7870;--text-dim:#48464A;
-  --red:#D45555;--red-dim:rgba(212,85,85,0.09);--green:#5CB88A;--green-dim:rgba(92,184,138,0.09);--r:8px;
+  --border:rgba(255,255,255,0.07);--text:#F0EDE6;--text-muted:#9A9890;--text-dim:#5A5858;
+  --red:#E06060;--red-dim:rgba(224,96,96,0.09);--green:#6ECFA0;--green-dim:rgba(110,207,160,0.09);--r:8px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Mono',monospace;background:var(--black);color:var(--text);min-height:100vh;font-size:13px;line-height:1.6}
+body{font-family:'DM Mono',monospace;background:var(--black);color:var(--text);min-height:100vh;font-size:14px;line-height:1.65}
 
 /* SCREENS — JS controls visibility via .hidden class only */
 .screen { display: block; }
@@ -33,7 +33,7 @@ body{font-family:'DM Mono',monospace;background:var(--black);color:var(--text);m
 .eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
 h1{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,5vw,48px);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:10px}
 h1 em{font-style:italic;color:var(--gold)}
-.header-desc{font-size:12px;color:var(--text-muted);line-height:1.75;max-width:440px;margin:0 auto 14px}
+.header-desc{font-size:13px;color:var(--text-muted);line-height:1.75;max-width:440px;margin:0 auto 14px}
 .time-pill{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:10px;color:var(--text-muted);letter-spacing:.08em}
 .time-pill::before{content:'⏱';font-size:11px}
 .trust-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:12px;flex-wrap:wrap}
@@ -52,14 +52,14 @@ h1 em{font-style:italic;color:var(--gold)}
 .a-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px 22px 20px;margin-bottom:10px;transition:border-color .2s}
 .a-card:hover{border-color:rgba(255,255,255,0.1)}
 .a-num{font-size:10px;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;margin-bottom:5px}
-.a-question{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.5vw,21px);font-weight:400;color:var(--text);line-height:1.35;margin-bottom:14px}
-.a-hint{font-size:11px;color:var(--text-dim);font-style:italic;margin-top:-8px;margin-bottom:13px;letter-spacing:.03em}
+.a-question{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.8vw,24px);font-weight:400;color:var(--text);line-height:1.35;margin-bottom:14px}
+.a-hint{font-size:12px;color:var(--text-muted);font-style:italic;margin-top:-8px;margin-bottom:13px;letter-spacing:.03em}
 
 /* INPUTS */
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:480px){.field-row{grid-template-columns:1fr}}
 .field{display:flex;flex-direction:column;gap:6px}
-.fl{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);display:flex;align-items:center;gap:5px}
+.fl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);display:flex;align-items:center;gap:5px}
 .req-dot{width:4px;height:4px;border-radius:50%;background:var(--red);flex-shrink:0}
 input[type=text],input[type=number],input[type=email]{width:100%;background:var(--deep);border:1.5px solid var(--border);border-radius:6px;padding:12px 14px;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
 input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,0.07)}
@@ -94,7 +94,7 @@ input::placeholder{color:var(--text-dim)}
 .sb[data-v="2"].on{background:rgba(168,185,110,.08);border-color:#A8B96E}.sb[data-v="2"].on .sb-num{color:#A8B96E}
 .sb[data-v="4"].on{background:rgba(212,136,58,.1);border-color:#D4883A}.sb[data-v="4"].on .sb-num{color:#D4883A}
 .sb[data-v="5"].on{background:var(--red-dim);border-color:var(--red)}.sb[data-v="5"].on .sb-num{color:var(--red)}
-.scale-desc-text{font-size:11px;color:var(--text-muted);text-align:center;margin-top:9px;min-height:14px;font-style:italic}
+.scale-desc-text{font-size:12px;color:var(--text-muted);text-align:center;margin-top:9px;min-height:14px;font-style:italic}
 
 /* OPTION PILLS */
 .op-pills{display:flex;flex-direction:column;gap:7px}
@@ -104,8 +104,8 @@ input::placeholder{color:var(--text-dim)}
 .op-radio{width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);background:var(--surface3);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .op-pill.on .op-radio{background:var(--gold);border-color:var(--gold)}
 .op-pill.on .op-radio::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--black)}
-.op-txt{font-size:12px;color:var(--text-muted);line-height:1.4}
-.op-txt strong{display:block;font-size:13px;color:var(--text);font-weight:400;margin-bottom:1px}
+.op-txt{font-size:13px;color:var(--text-muted);line-height:1.4}
+.op-txt strong{display:block;font-size:14px;color:var(--text);font-weight:400;margin-bottom:1px}
 .op-pill.on .op-txt{color:var(--gold)}.op-pill.on .op-txt strong{color:var(--gold-light)}
 
 /* CONTACT CAPTURE */
@@ -155,7 +155,7 @@ input::placeholder{color:var(--text-dim)}
 .rp-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(92,184,138,.09);border:1px solid rgba(92,184,138,.2);border-radius:20px;padding:3px 11px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:11px}
 .rp-title{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,26px);font-weight:300;color:var(--text);margin-bottom:7px}
 .rp-title em{font-style:italic;color:var(--green)}
-.rp-body{font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:14px}
+.rp-body{font-size:13px;color:var(--text-muted);line-height:1.75;margin-bottom:14px}
 .rp-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 @media(max-width:440px){.rp-trio{grid-template-columns:1fr}}
 .rp-tile{background:rgba(92,184,138,.05);border:1px solid rgba(92,184,138,.12);border-radius:5px;padding:13px 10px;text-align:center}
@@ -166,8 +166,8 @@ input::placeholder{color:var(--text-dim)}
 @media(max-width:420px){.how-items{grid-template-columns:1fr}}
 .how-item{background:rgba(92,184,138,.04);border:1px solid rgba(92,184,138,.1);border-radius:5px;padding:12px;display:flex;gap:9px;align-items:flex-start}
 .how-icon{font-size:16px;flex-shrink:0;margin-top:1px}
-.how-text{font-size:11px;color:var(--text-muted);line-height:1.55}
-.how-text strong{display:block;color:var(--text);font-weight:400;margin-bottom:2px;font-size:11px}
+.how-text{font-size:12px;color:var(--text-muted);line-height:1.6}
+.how-text strong{display:block;color:var(--text);font-weight:400;margin-bottom:2px;font-size:13px}
 
 /* DEMO CTA */
 .demo-cta{background:var(--surface);border:1px solid rgba(201,169,110,.3);border-radius:var(--r);padding:28px 22px;margin-bottom:10px;text-align:center;position:relative;overflow:hidden}
@@ -175,7 +175,7 @@ input::placeholder{color:var(--text-dim)}
 .demo-eyebrow{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:13px}
 .demo-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3.5vw,30px);font-weight:300;color:var(--text);margin-bottom:9px;line-height:1.25}
 .demo-title em{font-style:italic;color:var(--gold)}
-.demo-body{font-size:12px;color:var(--text-muted);line-height:1.75;max-width:400px;margin:0 auto 18px}
+.demo-body{font-size:13px;color:var(--text-muted);line-height:1.75;max-width:400px;margin:0 auto 18px}
 .giveaway-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.18);border-radius:6px;padding:10px 14px;margin-bottom:18px;font-size:11px;color:var(--gold-light);line-height:1.55;text-align:left;width:100%;max-width:440px}
 .giveaway-icon{font-size:18px;flex-shrink:0}
 .cta-btns{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto}
@@ -198,12 +198,12 @@ input::placeholder{color:var(--text-dim)}
 .float-btn:hover{background:var(--gold-light)}
 
 /* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:300;align-items:center;justify-content:center;padding:20px;display:none}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);z-index:300;align-items:center;justify-content:center;padding:16px;display:none}
 .modal-overlay.open{display:flex}
-.modal{background:var(--surface);border:1px solid var(--gold-border);border-radius:var(--r);padding:28px;max-width:520px;width:100%;animation:fadeUp .3s ease;max-height:90vh;overflow-y:auto}
+.modal{background:var(--surface);border:1px solid var(--gold-border);border-radius:var(--r);padding:28px;max-width:520px;width:100%;animation:fadeUp .3s ease;overflow:hidden}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--text);margin-bottom:6px}
-.modal-sub{font-size:11px;color:var(--text-muted);margin-bottom:16px;line-height:1.65}
+.modal-sub{font-size:12px;color:var(--text-muted);margin-bottom:16px;line-height:1.65}
 .modal-label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;display:block}
 .modal input[type=email]{width:100%;background:var(--deep);border:1.5px solid var(--border);border-radius:5px;padding:11px 13px;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;margin-bottom:14px}
 .modal input[type=email]:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.07)}
@@ -214,15 +214,15 @@ input::placeholder{color:var(--text-dim)}
 .modal-cancel{background:transparent;color:var(--text-muted);border:1px solid var(--border);padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .2s}
 .modal-cancel:hover{border-color:var(--gold-border);color:var(--text)}
 /* Summary cards inside modal */
-.sum-section{background:var(--deep);border:1px solid var(--border);border-radius:5px;padding:14px 16px}
-.sum-section-title{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.sum-section{background:var(--deep);border:1px solid var(--border);border-radius:5px;padding:12px 16px;margin-bottom:0}
+.sum-section-title{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .sum-section-title::before{content:'◆';font-size:6px}
-.sum-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.sum-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05)}
 .sum-row:last-child{border-bottom:none}
-.sum-key{font-size:11px;color:var(--text-muted)}
-.sum-val{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text);text-align:right}
-.sum-val.red{color:var(--red)}
-.sum-val.green{color:var(--green)}
+.sum-key{font-size:12px;color:#9A9890}
+.sum-val{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--text);text-align:right}
+.sum-val.red{color:#E06060}
+.sum-val.green{color:#6ECFA0}
 .sum-val.gold{color:var(--gold)}
 
 /* TOAST */
@@ -234,7 +234,7 @@ input::placeholder{color:var(--text-dim)}
 
 <!-- PROGRESS BAR (always visible) -->
 <div class="prog-wrap"><div class="prog-fill" id="prog"></div></div>
-<div class="prog-label" id="prog-label">Step 1 of 7 — Practice Info</div>
+<div class="prog-label" id="prog-label">Step 1 of 7 — Clinic Info</div>
 
 <div class="app">
 
@@ -244,7 +244,18 @@ input::placeholder{color:var(--text-dim)}
     <div class="header">
       <div class="eyebrow"><div class="eyebrow-dot"></div>MedSpa Performance Assessment</div>
       <h1>How Much Revenue Is<br><em>Slipping Through?</em></h1>
-      <p class="header-desc">Answer 7 quick questions about how your practice handles new inquiries. We'll calculate exactly what you could be missing — and how to get it back.</p>
+      <p class="header-desc">Answer 7 quick questions about how your Clinic handles new inquiries. We'll calculate exactly what you could be missing — and how to get it back.</p>
+
+      <!-- GIVEAWAY BANNER — top of form -->
+      <div style="background:linear-gradient(135deg,rgba(201,169,110,0.13),rgba(201,169,110,0.06));border:1px solid rgba(201,169,110,0.35);border-radius:8px;padding:16px 18px;margin:16px auto 18px;max-width:480px;display:flex;align-items:flex-start;gap:12px;text-align:left">
+        <div style="font-size:24px;flex-shrink:0;line-height:1">🎁</div>
+        <div>
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Limited Opportunity</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--text);line-height:1.3;margin-bottom:5px">Win a Free AI Patient Reactivation System</div>
+          <div style="font-size:12px;color:#9A9890;line-height:1.65">Clinics that complete the Assessment+Demo are entered into our selection to receive a <strong style="color:var(--gold-light);font-weight:400">fully installed AI Patient Reactivation System — at no cost.</strong> Complete to qualify.</div>
+        </div>
+      </div>
+
       <div class="time-pill">Takes less than 2 minutes</div>
       <div class="trust-row">
         <div class="trust-item">Confidential</div>
@@ -267,9 +278,9 @@ input::placeholder{color:var(--text-dim)}
     <!-- Q1 -->
     <div class="a-card">
       <div class="a-num">Question 01</div>
-      <div class="a-question">What's the name of your practice, and who should we address this report to?</div>
+      <div class="a-question">What's the name of your Clinic, and who should we address this report to?</div>
       <div class="field-row">
-        <div class="field"><div class="fl">Practice Name</div><input type="text" id="spa_name" placeholder="e.g. Luxe Aesthetics" oninput="onInput(this)"></div>
+        <div class="field"><div class="fl">Clinic Name</div><input type="text" id="spa_name" placeholder="e.g. Luxe Aesthetics" oninput="onInput(this)"></div>
         <div class="field"><div class="fl">Your Name</div><input type="text" id="owner_name" placeholder="e.g. Sarah M." oninput="onInput(this)"></div>
       </div>
     </div>
@@ -277,7 +288,7 @@ input::placeholder{color:var(--text-dim)}
     <!-- Q2 -->
     <div class="a-card">
       <div class="a-num">Question 02</div>
-      <div class="a-question">How many new client inquiries does your practice receive each day?</div>
+      <div class="a-question">How many new client inquiries does your Clinic receive each day?</div>
       <div class="a-hint">Across all channels — calls, texts, DMs, website forms, etc.</div>
       <div class="field-row">
         <div class="field">
@@ -399,7 +410,7 @@ input::placeholder{color:var(--text-dim)}
     <!-- SCORE HERO -->
     <div class="score-hero">
       <div class="score-eyebrow">Your MedSpa Assessment Results</div>
-      <div class="score-name" id="r-name">Your Practice</div>
+      <div class="score-name" id="r-name">Your Clinic</div>
       <div class="score-badge">
         <div class="score-label">Performance Score</div>
         <div><span class="score-num" id="r-score">—</span><span class="score-denom"> / 100</span></div>
@@ -450,13 +461,13 @@ input::placeholder{color:var(--text-dim)}
       <div class="demo-body">We'll walk you through exactly how this works for your MedSpa — using the numbers from your assessment. Takes 10 minutes.</div>
       <div class="giveaway-pill">
         <span class="giveaway-icon">🎁</span>
-        <span>Practices that complete the demo are entered into our selection to receive a fully installed <strong>AI Patient Reactivation System</strong> — at no cost.</span>
+        <span>Clinics that complete the demo are entered into our selection to receive a fully installed <strong>AI Patient Reactivation System</strong> — at no cost.</span>
       </div>
       <div class="cta-btns">
         <a href="https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn" target="_blank" class="btn-primary">📅 Schedule My Live Demo</a>
         <button class="btn-secondary" onclick="openModal()">✉ Get Results by Email</button>
       </div>
-      <div class="demo-note">No commitment required · 10-minute session · Personalized to your practice</div>
+      <div class="demo-note">No commitment required · 10-minute session · Personalized to your Clinic</div>
     </div>
 
     <button class="retake-btn" onclick="resetAll()">← Retake Assessment</button>
@@ -495,18 +506,14 @@ input::placeholder{color:var(--text-dim)}
 
     <!-- STEP 2: confirmation + readable summary -->
     <div id="modal-step2" style="display:none">
-      <div style="text-align:center;margin-bottom:20px">
-        <div style="font-size:32px;margin-bottom:10px">✅</div>
-        <div class="modal-title" style="margin-bottom:6px">Results Sent</div>
-        <div style="font-size:11px;color:var(--text-muted);line-height:1.7">Your info has been received — check your inbox shortly.<br>Here's your full summary below.</div>
+      <div style="text-align:center;margin-bottom:16px">
+        <div style="font-size:28px;margin-bottom:8px">✅</div>
+        <div class="modal-title" style="margin-bottom:4px">Results Sent</div>
+        <div style="font-size:12px;color:#9A9890;line-height:1.65">Your info has been received — check your inbox shortly.</div>
       </div>
-
-      <!-- Readable summary cards instead of plain text box -->
-      <div id="modal-summary-cards" style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px"></div>
-
+      <div id="modal-summary-cards" style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px"></div>
       <div class="modal-btns">
-        <button class="modal-cancel" onclick="closeModal()" style="flex:1">Close</button>
-        <button class="modal-send" onclick="copySummary()">📋 Copy Summary</button>
+        <button class="modal-cancel" onclick="closeModal()" style="flex:1;padding:13px">Close</button>
       </div>
     </div>
 
@@ -599,7 +606,7 @@ input::placeholder{color:var(--text-dim)}
   }
 
   // ── Progress dots ──────────────────────────────────────
-  var progLabels = ['Practice Info','Daily Volume','Lead Channels','After-Hours','Missed Calls','Revenue Values','Follow-Up System'];
+  var progLabels = ['Clinic Info','Daily Volume','Lead Channels','After-Hours','Missed Calls','Revenue Values','Follow-Up System'];
 
   function updateProg(){
     var checks = [
@@ -700,7 +707,7 @@ input::placeholder{color:var(--text-dim)}
     }
     G('err-sum').classList.remove('show');
 
-    var spaName  = G('spa_name').value  || 'Your Practice';
+    var spaName  = G('spa_name').value  || 'Your Clinic';
     var owner    = G('owner_name').value || 'the owner';
     var vfreq    = 1.5;
     var clife    = clientLifetime;
@@ -811,7 +818,7 @@ input::placeholder{color:var(--text-dim)}
   function resetAll(){
     G('float-bar').classList.add('hidden');
     G('prog').style.width = '0%';
-    G('prog-label').textContent = 'Step 1 of 7 — Practice Info';
+    G('prog-label').textContent = 'Step 1 of 7 — Clinic Info';
     showScreen('form-screen');
   }
 
@@ -848,7 +855,7 @@ input::placeholder{color:var(--text-dim)}
     var summary =
       'MEDSPA PERFORMANCE ASSESSMENT\n' +
       '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
-      'Practice: ' + c.spaName + '\n' +
+      'Clinic: ' + c.spaName + '\n' +
       'Score: ' + c.score + ' / 100  (' + grade + ')\n\n' +
       'MISSED OPPORTUNITIES\n' +
       '• ' + Math.round(c.lcMo) + ' new clients / month\n' +
@@ -886,7 +893,7 @@ input::placeholder{color:var(--text-dim)}
     G('modal-summary-cards').dataset.plaintext = summary;
     G('modal-summary-cards').innerHTML =
       '<div class="sum-section">' +
-        '<div class="sum-section-title">Practice</div>' +
+        '<div class="sum-section-title">Clinic</div>' +
         '<div class="sum-row"><div class="sum-key">Name</div><div class="sum-val gold">' + c.spaName + '</div></div>' +
         '<div class="sum-row"><div class="sum-key">Performance Score</div><div class="sum-val gold">' + c.score + ' / 100</div></div>' +
         '<div class="sum-row"><div class="sum-key">Rating</div><div class="sum-val" style="font-size:12px;color:var(--text-muted)">' + grade + '</div></div>' +
@@ -911,20 +918,6 @@ input::placeholder{color:var(--text-dim)}
     G('modal-step1').style.display = 'none';
     G('modal-step2').style.display = 'block';
   }
-
-  function copySummary(){
-    var text = G('modal-summary-cards').dataset.plaintext || '';
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(function(){
-        showToast('Copied ✓');
-      }).catch(function(){
-        fallbackCopy(text);
-      });
-    } else {
-      fallbackCopy(text);
-    }
-  }
-
 
   function showToast(msg){
     var t = G('toast');
