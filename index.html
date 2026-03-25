@@ -16,18 +16,14 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Mono',monospace;background:var(--black);color:var(--text);min-height:100vh;font-size:14px;line-height:1.65}
 
-/* SCREENS — JS controls visibility via .hidden class only */
-.screen { display: block; }
-.screen.hidden { display: none !important; }
+.screen{display:block}.screen.hidden{display:none!important}
 
-/* PROGRESS */
 .prog-wrap{height:4px;background:var(--surface2);position:sticky;top:0;z-index:100}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),#E8B96E);transition:width .5s ease;width:0%}
 .prog-label{text-align:center;font-size:10px;color:var(--text-muted);letter-spacing:.1em;padding:8px 0 6px;background:var(--deep)}
 
 .app{max-width:640px;margin:0 auto;padding:44px 20px 140px}
 
-/* HEADER */
 .header{text-align:center;margin-bottom:40px}
 .eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:20px;padding:5px 14px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
@@ -40,7 +36,6 @@ h1 em{font-style:italic;color:var(--gold)}
 .trust-item{font-size:10px;color:var(--text-dim);letter-spacing:.05em;display:flex;align-items:center;gap:5px}
 .trust-item::before{content:'✓';color:var(--green);font-size:11px}
 
-/* STEP DOTS */
 .step-dots{display:flex;align-items:center;justify-content:center;margin-bottom:28px}
 .sdot{width:8px;height:8px;border-radius:50%;background:var(--surface3);border:1px solid var(--border);transition:all .3s;flex-shrink:0}
 .sdot.done{background:var(--gold);border-color:var(--gold)}
@@ -48,14 +43,12 @@ h1 em{font-style:italic;color:var(--gold)}
 .sdot-line{width:20px;height:1px;background:var(--border)}
 .sdot-line.done{background:var(--gold-border)}
 
-/* QUESTION CARDS */
 .a-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px 22px 20px;margin-bottom:10px;transition:border-color .2s}
 .a-card:hover{border-color:rgba(255,255,255,0.1)}
 .a-num{font-size:10px;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;margin-bottom:5px}
 .a-question{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.8vw,24px);font-weight:400;color:var(--text);line-height:1.35;margin-bottom:14px}
 .a-hint{font-size:12px;color:var(--text-muted);font-style:italic;margin-top:-8px;margin-bottom:13px;letter-spacing:.03em}
 
-/* INPUTS */
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:480px){.field-row{grid-template-columns:1fr}}
 .field{display:flex;flex-direction:column;gap:6px}
@@ -69,8 +62,6 @@ input::placeholder{color:var(--text-dim)}
 .pfx-wrap{position:relative}.pfx{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none}.pfx-wrap input{padding-left:25px}
 .err-msg{font-size:10px;color:var(--red);margin-top:-3px;display:none}.err-msg.show{display:block}
 
-/* CHANNEL GRID */
-.ch-hint-text{font-size:10px;color:var(--text-muted);margin-bottom:10px;letter-spacing:.04em}
 .ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 @media(max-width:420px){.ch-grid{grid-template-columns:repeat(2,1fr)}}
 .ch-card{position:relative;background:var(--deep);border:1.5px solid var(--border);border-radius:6px;padding:14px 10px 11px;cursor:pointer;user-select:none;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;transition:border-color .2s,background .2s,transform .1s}
@@ -83,7 +74,6 @@ input::placeholder{color:var(--text-dim)}
 .ch-name{font-size:10px;color:var(--text-muted);pointer-events:none;line-height:1.3}
 .ch-card.on .ch-name{color:var(--gold-light)}
 
-/* SCALE */
 .scale-row{display:flex;gap:6px}
 .sb{flex:1;padding:14px 0;background:var(--deep);border:1.5px solid var(--border);border-radius:6px;cursor:pointer;text-align:center;transition:all .2s;user-select:none}
 .sb:hover{border-color:var(--gold-border)}
@@ -96,7 +86,6 @@ input::placeholder{color:var(--text-dim)}
 .sb[data-v="5"].on{background:var(--red-dim);border-color:var(--red)}.sb[data-v="5"].on .sb-num{color:var(--red)}
 .scale-desc-text{font-size:12px;color:var(--text-muted);text-align:center;margin-top:9px;min-height:14px;font-style:italic}
 
-/* OPTION PILLS */
 .op-pills{display:flex;flex-direction:column;gap:7px}
 .op-pill{background:var(--deep);border:1.5px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:11px;user-select:none}
 .op-pill:hover{border-color:var(--gold-border)}
@@ -108,36 +97,61 @@ input::placeholder{color:var(--text-dim)}
 .op-txt strong{display:block;font-size:14px;color:var(--text);font-weight:400;margin-bottom:1px}
 .op-pill.on .op-txt{color:var(--gold)}.op-pill.on .op-txt strong{color:var(--gold-light)}
 
-/* CONTACT CAPTURE */
 .contact-card{background:linear-gradient(135deg,rgba(201,169,110,.06),rgba(201,169,110,.02));border:1px solid rgba(201,169,110,.2);border-radius:var(--r);padding:22px;margin-bottom:10px}
 .contact-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--text);margin-bottom:5px}
 .contact-sub{font-size:11px;color:var(--text-muted);margin-bottom:16px;line-height:1.65}
 
-/* SUBMIT */
 .err-sum{background:var(--red-dim);border:1px solid rgba(212,85,85,.3);border-radius:6px;padding:12px 14px;font-size:11px;color:var(--red);margin-bottom:12px;display:none}.err-sum.show{display:block}
 .submit-btn{width:100%;padding:17px;background:var(--gold);border:none;border-radius:6px;color:var(--black);font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:10px}
 .submit-btn:hover{background:var(--gold-light);box-shadow:0 4px 20px rgba(201,169,110,.2)}
 .privacy-note{text-align:center;font-size:10px;color:var(--text-dim);margin-top:8px;letter-spacing:.05em}
 
-/* ===== RESULTS PAGE ===== */
-.results-page { padding-top: 0; }
+/* ===== RESULTS ===== */
+.results-page{padding-top:0}
 
-/* SCORE HERO */
-.score-hero{text-align:center;padding:34px 22px 28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;position:relative;overflow:hidden}
+.score-hero{text-align:center;padding:30px 22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;position:relative;overflow:hidden}
 .score-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.score-eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
-.score-name{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,4vw,34px);font-weight:300;color:var(--text);margin-bottom:18px}
-.score-badge{display:inline-flex;flex-direction:column;align-items:center;background:var(--surface2);border:2px solid var(--gold-border);border-radius:10px;padding:14px 26px;margin-bottom:18px}
+.score-eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.score-name{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,4vw,34px);font-weight:300;color:var(--text);margin-bottom:14px}
+.score-badge{display:inline-flex;flex-direction:column;align-items:center;background:var(--surface2);border:2px solid var(--gold-border);border-radius:10px;padding:12px 24px}
 .score-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
-.score-num{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:600;line-height:1;color:var(--gold)}
+.score-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;line-height:1;color:var(--gold)}
 .score-denom{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--text-muted)}
 .score-grade{font-size:11px;color:var(--text-muted);margin-top:4px;letter-spacing:.06em}
-.score-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
-@media(max-width:440px){.score-summary{grid-template-columns:1fr}}
-.score-stat{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:16px;text-align:center}
-.ss-label{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
-.ss-val{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,34px);color:var(--red);font-weight:600}
-.ss-sub{font-size:10px;color:var(--text-dim);margin-top:3px}
+
+/* ── IMPACT TILES ── */
+/* Row 1: 3 tiles — missed clients, monthly loss, annual loss */
+.impact-row1{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+@media(max-width:500px){.impact-row1{grid-template-columns:1fr 1fr}}
+@media(max-width:340px){.impact-row1{grid-template-columns:1fr}}
+
+/* Row 2: 2 deep impact tiles — LTV annual + 3-year */
+.impact-row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+@media(max-width:440px){.impact-row2{grid-template-columns:1fr}}
+
+.impact-tile{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:20px 14px;text-align:center;position:relative;overflow:hidden}
+
+/* Primary tiles get red top accent */
+.impact-tile.primary{border-color:rgba(224,96,96,.28);background:linear-gradient(160deg,rgba(224,96,96,.08),var(--surface2))}
+.impact-tile.primary::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent)}
+
+/* Secondary — escalating severity colours */
+.impact-tile.tier2{border-color:rgba(212,136,58,.22)}
+.impact-tile.tier3{border-color:rgba(224,96,96,.2)}
+.impact-tile.tier4{border-color:rgba(224,96,96,.35);background:linear-gradient(160deg,rgba(224,96,96,.06),var(--surface2))}
+
+.it-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;line-height:1.4}
+.it-val{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,38px);font-weight:600;line-height:1;margin-bottom:5px}
+.it-val.red{color:var(--red)}
+.it-val.orange{color:#D4883A}
+.it-sub{font-size:10px;color:var(--text-dim);letter-spacing:.04em;line-height:1.4}
+
+/* Alert banner between rows */
+.impact-alert{display:flex;align-items:flex-start;gap:12px;background:rgba(224,96,96,.07);border:1px solid rgba(224,96,96,.2);border-radius:var(--r);padding:14px 16px;margin-bottom:10px}
+.ia-icon{font-size:18px;flex-shrink:0;line-height:1;margin-top:2px}
+.ia-text{font-size:12px;color:var(--text-muted);line-height:1.7}
+.ia-text strong{display:block;font-size:13px;color:var(--text);font-weight:400;margin-bottom:3px}
+.ia-text .hi{color:var(--red)}
 
 /* SOURCES */
 .res-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:10px}
@@ -151,20 +165,20 @@ input::placeholder{color:var(--text-dim)}
 .src-val{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--red);min-width:78px;text-align:right}
 
 /* RECOVERY */
-.recovery-card{background:linear-gradient(160deg,rgba(92,184,138,.06),rgba(92,184,138,.02));border:1px solid rgba(92,184,138,.22);border-radius:var(--r);padding:22px;margin-bottom:10px}
-.rp-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(92,184,138,.09);border:1px solid rgba(92,184,138,.2);border-radius:20px;padding:3px 11px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:11px}
+.recovery-card{background:linear-gradient(160deg,rgba(110,207,160,.06),rgba(110,207,160,.02));border:1px solid rgba(110,207,160,.22);border-radius:var(--r);padding:22px;margin-bottom:10px}
+.rp-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(110,207,160,.09);border:1px solid rgba(110,207,160,.2);border-radius:20px;padding:3px 11px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:11px}
 .rp-title{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,26px);font-weight:300;color:var(--text);margin-bottom:7px}
 .rp-title em{font-style:italic;color:var(--green)}
 .rp-body{font-size:13px;color:var(--text-muted);line-height:1.75;margin-bottom:14px}
 .rp-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 @media(max-width:440px){.rp-trio{grid-template-columns:1fr}}
-.rp-tile{background:rgba(92,184,138,.05);border:1px solid rgba(92,184,138,.12);border-radius:5px;padding:13px 10px;text-align:center}
+.rp-tile{background:rgba(110,207,160,.05);border:1px solid rgba(110,207,160,.12);border-radius:5px;padding:13px 10px;text-align:center}
 .rp-period{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px}
 .rp-val{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,3vw,24px);color:var(--green);font-weight:600}
 .rp-sub{font-size:10px;color:var(--text-dim);margin-top:2px}
 .how-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 @media(max-width:420px){.how-items{grid-template-columns:1fr}}
-.how-item{background:rgba(92,184,138,.04);border:1px solid rgba(92,184,138,.1);border-radius:5px;padding:12px;display:flex;gap:9px;align-items:flex-start}
+.how-item{background:rgba(110,207,160,.04);border:1px solid rgba(110,207,160,.1);border-radius:5px;padding:12px;display:flex;gap:9px;align-items:flex-start}
 .how-icon{font-size:16px;flex-shrink:0;margin-top:1px}
 .how-text{font-size:12px;color:var(--text-muted);line-height:1.6}
 .how-text strong{display:block;color:var(--text);font-weight:400;margin-bottom:2px;font-size:13px}
@@ -188,16 +202,14 @@ input::placeholder{color:var(--text-dim)}
 .retake-btn{display:block;width:100%;text-align:center;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dim);cursor:pointer;background:none;border:none;font-family:'DM Mono',monospace;padding:12px;margin-top:4px;transition:color .2s}
 .retake-btn:hover{color:var(--text-muted)}
 
-/* FLOATING BAR — hidden until results */
 .float-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,12,.97);border-top:1px solid var(--border);backdrop-filter:blur(14px);padding:12px 20px;z-index:150}
-.float-bar.hidden{display:none !important}
+.float-bar.hidden{display:none!important}
 .float-inner{max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .float-left{font-size:10px;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:4px}
 .float-num{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--red);margin-left:6px}
 .float-btn{background:var(--gold);color:var(--black);border:none;padding:10px 20px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background .2s;white-space:nowrap}
 .float-btn:hover{background:var(--gold-light)}
 
-/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);z-index:300;align-items:center;justify-content:center;padding:16px;display:none}
 .modal-overlay.open{display:flex}
 .modal{background:var(--surface);border:1px solid var(--gold-border);border-radius:var(--r);padding:28px;max-width:520px;width:100%;animation:fadeUp .3s ease;overflow:hidden}
@@ -213,26 +225,21 @@ input::placeholder{color:var(--text-dim)}
 .modal-send:hover{background:var(--gold-light)}
 .modal-cancel{background:transparent;color:var(--text-muted);border:1px solid var(--border);padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .2s}
 .modal-cancel:hover{border-color:var(--gold-border);color:var(--text)}
-/* Summary cards inside modal */
-.sum-section{background:var(--deep);border:1px solid var(--border);border-radius:5px;padding:12px 16px;margin-bottom:0}
+.sum-section{background:var(--deep);border:1px solid var(--border);border-radius:5px;padding:12px 16px}
 .sum-section-title{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .sum-section-title::before{content:'◆';font-size:6px}
 .sum-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05)}
 .sum-row:last-child{border-bottom:none}
 .sum-key{font-size:12px;color:#9A9890}
 .sum-val{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--text);text-align:right}
-.sum-val.red{color:#E06060}
-.sum-val.green{color:#6ECFA0}
-.sum-val.gold{color:var(--gold)}
+.sum-val.red{color:#E06060}.sum-val.green{color:#6ECFA0}.sum-val.gold{color:var(--gold)}
 
-/* TOAST */
 .toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%) translateY(200px);background:var(--surface3);border:1px solid var(--gold-border);border-radius:4px;padding:8px 16px;font-size:11px;color:var(--gold);letter-spacing:.07em;transition:transform .3s ease;z-index:400;white-space:nowrap;pointer-events:none;visibility:hidden}
 .toast.show{transform:translateX(-50%) translateY(0);visibility:visible}
 </style>
 </head>
 <body>
 
-<!-- PROGRESS BAR (always visible) -->
 <div class="prog-wrap"><div class="prog-fill" id="prog"></div></div>
 <div class="prog-label" id="prog-label">Step 1 of 7 — Clinic Info</div>
 
@@ -245,26 +252,23 @@ input::placeholder{color:var(--text-dim)}
       <div class="eyebrow"><div class="eyebrow-dot"></div>MedSpa Performance Assessment</div>
       <h1>How Much Revenue Is<br><em>Slipping Through?</em></h1>
       <p class="header-desc">Answer 7 quick questions about how your Clinic handles new inquiries. We'll calculate exactly what you could be missing — and how to get it back.</p>
-
-       <div class="time-pill">Takes less than 2 minutes</div>
+      <div class="time-pill">Takes less than 2 minutes</div>
       <div class="trust-row">
         <div class="trust-item">Confidential</div>
         <div class="trust-item">No obligation</div>
         <div class="trust-item">Instant results</div>
       </div>
     </div>
-    
-      <!-- GIVEAWAY BANNER — top of form -->
-      <div style="background:linear-gradient(135deg,rgba(201,169,110,0.13),rgba(201,169,110,0.06));border:1px solid rgba(201,169,110,0.35);border-radius:8px;padding:16px 18px;margin:16px auto 18px;max-width:480px;display:flex;align-items:flex-start;gap:12px;text-align:left">
-        <div style="font-size:24px;flex-shrink:0;line-height:1">🎁</div>
-        <div>
-          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Limited Opportunity</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--text);line-height:1.3;margin-bottom:5px">Win a Free AI Patient Reactivation System</div>
-          <div style="font-size:12px;color:#9A9890;line-height:1.65">Clinics that complete the Assessment+Demo are entered into our selection to receive a <strong style="color:var(--gold-light);font-weight:400">fully installed AI Patient Reactivation System — at no cost.</strong> Complete to qualify.</div>
-        </div>
-      </div>
 
-    
+    <!-- GIVEAWAY BANNER -->
+    <div style="background:linear-gradient(135deg,rgba(201,169,110,0.13),rgba(201,169,110,0.06));border:1px solid rgba(201,169,110,0.35);border-radius:8px;padding:16px 18px;margin:0 auto 22px;display:flex;align-items:flex-start;gap:12px;text-align:left">
+      <div style="font-size:24px;flex-shrink:0;line-height:1">🎁</div>
+      <div>
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Limited Opportunity</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--text);line-height:1.3;margin-bottom:5px">Win a Free AI Patient Reactivation System</div>
+        <div style="font-size:12px;color:#9A9890;line-height:1.65">Clinics that complete the Assessment + Demo are entered into our selection to receive a <strong style="color:var(--gold-light);font-weight:400">fully installed AI Patient Reactivation System — at no cost.</strong> Complete to qualify.</div>
+      </div>
+    </div>
 
     <!-- STEP DOTS -->
     <div class="step-dots">
@@ -380,7 +384,7 @@ input::placeholder{color:var(--text-dim)}
         <div class="op-pill on" data-val="none" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Nothing — the lead goes cold</strong>No structured follow-up process</div></div>
         <div class="op-pill" data-val="manual_rare" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Someone tries to reach out eventually</strong>Inconsistent, depends on the person</div></div>
         <div class="op-pill" data-val="manual_regular" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>We follow up regularly</strong>Team makes a point to reach back out</div></div>
-        <div class="op-pill" data-val="partial_auto" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Partial automation</strong>Some automated messages, not complete</div></div>
+        <div class="op-pill" data-val="partial_auto" onclick="selPill('fu-pilots',this)"><div class="op-radio"></div><div class="op-txt"><strong>Partial automation</strong>Some automated messages, not complete</div></div>
         <div class="op-pill" data-val="full_auto" onclick="selPill('fu-pills',this)"><div class="op-radio"></div><div class="op-txt"><strong>Fully automated follow-up</strong>System handles multi-step follow-up automatically</div></div>
       </div>
     </div>
@@ -390,7 +394,7 @@ input::placeholder{color:var(--text-dim)}
       <div class="contact-title">Where should we send your results?</div>
       <div class="contact-sub">We'll email you a full breakdown with your numbers and a personalized recovery plan. No spam, no obligation.</div>
       <div class="field-row">
-        <div class="field"><div class="fl">Email Address</div><input type="email" id="contact_email" placeholder="you@yourmedspa.com" oninput="onInput(this)"></div>
+        <div class="field"><div class="fl">Email Address</div><input type="email" id="contact_email" placeholder="you@yourclinic.com" oninput="onInput(this)"></div>
         <div class="field"><div class="fl">Phone (optional)</div><input type="text" id="contact_phone" placeholder="(555) 000-0000" oninput="onInput(this)"></div>
       </div>
     </div>
@@ -418,17 +422,50 @@ input::placeholder{color:var(--text-dim)}
         <div><span class="score-num" id="r-score">—</span><span class="score-denom"> / 100</span></div>
         <div class="score-grade" id="r-grade">—</div>
       </div>
-      <div class="score-summary">
-        <div class="score-stat">
-          <div class="ss-label">Missed Opportunities</div>
-          <div class="ss-val" id="r-clients">—</div>
-          <div class="ss-sub">new clients / month</div>
-        </div>
-        <div class="score-stat">
-          <div class="ss-label">Monthly Revenue Impact</div>
-          <div class="ss-val" id="r-mo">—</div>
-          <div class="ss-sub">in unrealized revenue</div>
-        </div>
+    </div>
+
+    <!-- ROW 1: Primary Impact — 3 tiles -->
+    <div class="impact-row1">
+      <div class="impact-tile primary">
+        <div class="it-label">Missed Opportunities</div>
+        <div class="it-val red" id="r-clients">—</div>
+        <div class="it-sub">new clients / month not reached</div>
+      </div>
+      <div class="impact-tile primary">
+        <div class="it-label">Monthly Revenue Loss</div>
+        <div class="it-val red" id="r-mo">—</div>
+        <div class="it-sub">unrealized first-visit revenue</div>
+      </div>
+      <div class="impact-tile tier2">
+        <div class="it-label">Annual Revenue Loss</div>
+        <div class="it-val orange" id="r-yr">—</div>
+        <div class="it-sub">first-visit loss / year</div>
+      </div>
+    </div>
+
+    <!-- ALERT — bridge between rows -->
+    <div class="impact-alert">
+      <div class="ia-icon">⚠️</div>
+      <div class="ia-text">
+        <strong>First-visit revenue is just the beginning.</strong>
+        A loyal MedSpa client doesn't visit once — they come back for Botox touch-ups, skin treatments, and seasonal packages over months and years. Below is what each of those missed clients is truly worth over their lifetime with your clinic.
+      </div>
+    </div>
+
+    <!-- ROW 2: LTV Deep Impact — 2 tiles -->
+    <!-- ROW 2: LTV Deep Impact — Per Client + Annual -->
+    <div class="impact-row2">
+      <div class="impact-tile tier3">
+        <div class="it-label">Each Missed Client Is Worth</div>
+        <div class="it-val red" id="r-ltv-per">—</div>
+        <div class="it-sub">in lifetime revenue to your clinic</div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;color:var(--text-muted);line-height:1.6">Based on avg. visit value × visits per month × how long clients typically stay with you</div>
+      </div>
+      <div class="impact-tile tier4">
+        <div class="it-label">Annual LTV Loss</div>
+        <div class="it-val red" id="r-ltv-yr">—</div>
+        <div class="it-sub">in lifetime value walking out the door this year</div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;color:var(--text-muted);line-height:1.6">That's <span id="r-ltv-per-inline" style="color:var(--red)">—</span> per missed client × <span id="r-ltv-mo-clients" style="color:var(--red)">—</span> missed per month × 12 months</div>
       </div>
     </div>
 
@@ -460,7 +497,7 @@ input::placeholder{color:var(--text-dim)}
     <div class="demo-cta" id="demo-anchor">
       <div class="demo-eyebrow">See How To Recover These Bookings</div>
       <div class="demo-title">Get a Live Demo<br><em>Built Around Your Numbers</em></div>
-      <div class="demo-body">We'll walk you through exactly how this works for your MedSpa — using the numbers from your assessment. Takes 10 minutes.</div>
+      <div class="demo-body">We'll walk you through exactly how this works for your Clinic — using the numbers from your assessment. Takes 10 minutes.</div>
       <div class="giveaway-pill">
         <span class="giveaway-icon">🎁</span>
         <span>Clinics that complete the demo are entered into our selection to receive a fully installed <strong>AI Patient Reactivation System</strong> — at no cost.</span>
@@ -478,13 +515,9 @@ input::placeholder{color:var(--text-dim)}
 
 </div><!-- /app -->
 
-<!-- FLOATING BAR — hidden by default, shown only after results -->
 <div class="float-bar hidden" id="float-bar">
   <div class="float-inner">
-    <div class="float-left">
-      <span>Est. Monthly Loss:</span>
-      <span class="float-num" id="float-num">—</span>
-    </div>
+    <div class="float-left"><span>Est. Monthly Loss:</span><span class="float-num" id="float-num">—</span></div>
     <button class="float-btn" onclick="scrollToDemo()">See How This Gets Fixed →</button>
   </div>
 </div>
@@ -492,21 +525,17 @@ input::placeholder{color:var(--text-dim)}
 <!-- EMAIL MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
-
-    <!-- STEP 1: enter email -->
     <div id="modal-step1">
       <div class="modal-title">Get Your Results by Email</div>
       <div class="modal-sub">Enter your email and we'll send your full assessment summary with recovery numbers and your demo link.</div>
       <label class="modal-label">Your Email Address</label>
-      <input type="email" id="modal-email" placeholder="you@yourmedspa.com">
+      <input type="email" id="modal-email" placeholder="you@yourclinic.com">
       <div id="modal-email-err" style="font-size:10px;color:var(--red);margin-top:-10px;margin-bottom:10px;display:none">Please enter a valid email address</div>
       <div class="modal-btns">
         <button class="modal-cancel" onclick="closeModal()">Cancel</button>
         <button class="modal-send" onclick="sendEmail()">Send My Results →</button>
       </div>
     </div>
-
-    <!-- STEP 2: confirmation + readable summary -->
     <div id="modal-step2" style="display:none">
       <div style="text-align:center;margin-bottom:16px">
         <div style="font-size:28px;margin-bottom:8px">✅</div>
@@ -515,421 +544,390 @@ input::placeholder{color:var(--text-dim)}
       </div>
       <div id="modal-summary-cards" style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px"></div>
       <div class="modal-btns">
-        <button class="modal-cancel" onclick="closeModal()" style="flex:1;padding:13px">Close</button>
+        <button class="modal-send" onclick="saveResultsImage()" style="background:var(--surface3);color:var(--gold);border:1px solid var(--gold-border);flex:1">⬇ Save Results</button>
+        <button class="modal-cancel" onclick="closeModal()" style="padding:13px">Close</button>
       </div>
+      <div style="text-align:center;font-size:10px;color:var(--text-dim);margin-top:10px;letter-spacing:.04em">Downloads as an image to your device</div>
     </div>
-
   </div>
 </div>
 
-<div class="toast" id="toast">Copied ✓</div>
+<div class="toast" id="toast">✓</div>
 
 <script>
-  // ── State ──────────────────────────────────────────────
-  var missedScale = 3;
-  var clientLifetime = 18;
-  var daysOpenVal = 6;
-  var _recData = {};
-  var _calcCache = {};
+  var missedScale=3,clientLifetime=18,daysOpenVal=6,_recData={},_calcCache={};
 
-  // ── Helpers ────────────────────────────────────────────
-  function G(id){ return document.getElementById(id); }
-  function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
-  function fd(n, d){ d = d||1; return parseFloat(n).toFixed(d); }
+  function G(id){return document.getElementById(id);}
+  function fmt(n){return '$'+Math.round(n).toLocaleString();}
+  function getPill(g){var e=document.querySelector('#'+g+' .op-pill.on');return e?e.dataset.val:null;}
 
-  function getPill(groupId){
-    var el = document.querySelector('#' + groupId + ' .op-pill.on');
-    return el ? el.dataset.val : null;
-  }
-
-  // ── Show / Hide screens ────────────────────────────────
   function showScreen(id){
-    document.querySelectorAll('.screen').forEach(function(s){ s.classList.add('hidden'); });
+    document.querySelectorAll('.screen').forEach(function(s){s.classList.add('hidden');});
     G(id).classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top:0,behavior:'smooth'});
   }
 
-  // ── Float bar ──────────────────────────────────────────
-  function showFloatBar(monthlyLoss){
-    G('float-num').textContent = fmt(monthlyLoss);
-    G('float-bar').classList.remove('hidden');
-  }
+  function showFloatBar(moL){G('float-num').textContent=fmt(moL);G('float-bar').classList.remove('hidden');}
+  function scrollToDemo(){var el=G('demo-anchor');if(el)el.scrollIntoView({behavior:'smooth'});}
 
-  function scrollToDemo(){
-    var el = G('demo-anchor');
-    if(el) el.scrollIntoView({ behavior: 'smooth' });
-  }
+  function toggleCh(card){card.classList.toggle('on');updateProg();}
 
-  // ── Interactions ───────────────────────────────────────
-  function toggleCh(card){
-    card.classList.toggle('on');
-    updateProg();
-  }
-
-  function selPill(groupId, el){
-    document.querySelectorAll('#' + groupId + ' .op-pill').forEach(function(p){ p.classList.remove('on'); });
-    el.classList.add('on');
-    updateProg();
+  function selPill(g,el){
+    document.querySelectorAll('#'+g+' .op-pill').forEach(function(p){p.classList.remove('on');});
+    el.classList.add('on');updateProg();
   }
 
   function selDays(el){
-    document.querySelectorAll('#days-pills .op-pill').forEach(function(p){ p.classList.remove('on'); });
-    el.classList.add('on');
-    daysOpenVal = parseInt(el.dataset.val);
-    updateProg();
+    document.querySelectorAll('#days-pills .op-pill').forEach(function(p){p.classList.remove('on');});
+    el.classList.add('on');daysOpenVal=parseInt(el.dataset.val);updateProg();
   }
 
   function selLife(el){
-    document.querySelectorAll('#life-pills .op-pill').forEach(function(p){ p.classList.remove('on'); });
-    el.classList.add('on');
-    clientLifetime = parseInt(el.dataset.val);
-    updateProg();
+    document.querySelectorAll('#life-pills .op-pill').forEach(function(p){p.classList.remove('on');});
+    el.classList.add('on');clientLifetime=parseInt(el.dataset.val);updateProg();
   }
 
   function selScale(btn){
-    document.querySelectorAll('.sb').forEach(function(b){ b.classList.remove('on'); });
-    btn.classList.add('on');
-    missedScale = parseInt(btn.dataset.v);
-    var descs = {
-      1: 'Rarely — most calls are answered',
-      2: 'Sometimes — occasional misses',
-      3: 'Often — phones go unanswered during busy periods',
-      4: 'Regularly — calls are missed throughout the day',
-      5: 'Very often — significant call volume is missed daily'
-    };
-    G('scale-desc').textContent = descs[missedScale];
-    updateProg();
+    document.querySelectorAll('.sb').forEach(function(b){b.classList.remove('on');});
+    btn.classList.add('on');missedScale=parseInt(btn.dataset.v);
+    var d={1:'Rarely — most calls are answered',2:'Sometimes — occasional misses',3:'Often — phones go unanswered during busy periods',4:'Regularly — calls are missed throughout the day',5:'Very often — significant call volume is missed daily'};
+    G('scale-desc').textContent=d[missedScale];updateProg();
   }
 
-  function onInput(inp){
-    inp.classList.toggle('filled', !!inp.value);
-    inp.classList.remove('field-err');
-    updateProg();
-  }
+  function onInput(inp){inp.classList.toggle('filled',!!inp.value);inp.classList.remove('field-err');updateProg();}
 
-  // ── Progress dots ──────────────────────────────────────
-  var progLabels = ['Clinic Info','Daily Volume','Lead Channels','After-Hours','Missed Calls','Revenue Values','Follow-Up System'];
+  var progLabels=['Clinic Info','Daily Volume','Lead Channels','After-Hours','Missed Calls','Revenue Values','Follow-Up System'];
 
   function updateProg(){
-    var checks = [
-      !!(G('spa_name').value || G('owner_name').value),
+    var checks=[
+      !!(G('spa_name').value||G('owner_name').value),
       !!G('daily_inquiries').value,
-      document.querySelectorAll('.ch-card.on').length > 0,
+      document.querySelectorAll('.ch-card.on').length>0,
       !!getPill('ah-pills'),
       !!missedScale,
       !!G('first_visit').value,
       !!getPill('fu-pills')
     ];
-    var n = checks.filter(Boolean).length;
-    G('prog').style.width = Math.round(n / 7 * 100) + '%';
-
-    var activeIdx = checks.indexOf(false);
-    var labelIdx = activeIdx < 0 ? 6 : activeIdx;
-    G('prog-label').textContent = 'Step ' + (activeIdx < 0 ? 7 : activeIdx + 1) + ' of 7 — ' + progLabels[labelIdx];
-
-    checks.forEach(function(v, i){
-      var dot = G('dot' + i);
-      var line = G('dl' + i);
-      if(dot){
-        dot.classList.toggle('done', v);
-        dot.classList.toggle('active', !v && (i === 0 || checks[i-1] === true));
-      }
-      if(line) line.classList.toggle('done', v);
+    var n=checks.filter(Boolean).length;
+    G('prog').style.width=Math.round(n/7*100)+'%';
+    var ai=checks.indexOf(false),li=ai<0?6:ai;
+    G('prog-label').textContent='Step '+(ai<0?7:ai+1)+' of 7 — '+progLabels[li];
+    checks.forEach(function(v,i){
+      var dot=G('dot'+i),line=G('dl'+i);
+      if(dot){dot.classList.toggle('done',v);dot.classList.toggle('active',!v&&(i===0||checks[i-1]===true));}
+      if(line)line.classList.toggle('done',v);
     });
   }
 
-  // ── Calc engine (unchanged math) ──────────────────────
   function getLeakRate(){
-    var ah = getPill('ah-pills') || 'nothing';
-    var fu = getPill('fu-pills') || 'none';
-    var ahMap = { nothing: 0.16, voicemail: 0.10, manual: 0.07, auto_limited: 0.03, full_auto: 0 };
-    var fuMap = { none: 0.09, manual_rare: 0.06, manual_regular: 0.02, partial_auto: 0.01, full_auto: 0 };
-    var b = 0.18;
-    b += (ahMap[ah] !== undefined ? ahMap[ah] : 0.10);
-    b += (missedScale - 1) * 0.04;
-    b += (fuMap[fu] !== undefined ? fuMap[fu] : 0.05);
-    b += 0.06;
-    return Math.min(b, 0.72);
+    var ah=getPill('ah-pills')||'nothing',fu=getPill('fu-pills')||'none';
+    var ahMap={nothing:0.16,voicemail:0.10,manual:0.07,auto_limited:0.03,full_auto:0};
+    var fuMap={none:0.09,manual_rare:0.06,manual_regular:0.02,partial_auto:0.01,full_auto:0};
+    var b=0.18;
+    b+=(ahMap[ah]!==undefined?ahMap[ah]:0.10);
+    b+=(missedScale-1)*0.04;
+    b+=(fuMap[fu]!==undefined?fuMap[fu]:0.05);
+    b+=0.06;
+    return Math.min(b,0.72);
   }
 
   function getConvRate(){
-    var map = { none: 0.25, basic: 0.30, partial: 0.37, strong: 0.44 };
-    var fu = getPill('fu-pills');
-    return (fu && map[fu]) ? map[fu] : 0.28;
+    var map={none:0.25,basic:0.30,partial:0.37,strong:0.44};
+    var fu=getPill('fu-pills');
+    return (fu&&map[fu])?map[fu]:0.28;
   }
 
-  function getChData(){
-    var sel = document.querySelectorAll('.ch-card.on');
-    if(!sel.length) return null;
-    var meta = {
-      phone:     { name:'Phone Calls',    icon:'📞', ds: 0.30 },
-      website:   { name:'Website/Forms',  icon:'🌐', ds: 0.20 },
-      instagram: { name:'Instagram',      icon:'📸', ds: 0.22 },
-      google:    { name:'Google',         icon:'🔍', ds: 0.15 },
-      text:      { name:'Text/SMS',       icon:'💬', ds: 0.08 },
-      referral:  { name:'Referrals',      icon:'🤝', ds: 0.05 }
-    };
-    var chs = [];
-    sel.forEach(function(card){
-      var ch = card.dataset.ch;
-      if(meta[ch]) chs.push({ ch: ch, name: meta[ch].name, icon: meta[ch].icon, ds: meta[ch].ds });
-    });
-    var ss = chs.reduce(function(a,c){ return a + c.ds; }, 0);
-    return chs.map(function(c){ return Object.assign({}, c, { share: c.ds / ss }); });
-  }
-
-  // ── Main calculate ─────────────────────────────────────
   function calculate(){
-    var inq = parseFloat(G('daily_inquiries').value);
-    var fv  = parseFloat(G('first_visit').value);
-    var hasErr = false;
+    var inq=parseFloat(G('daily_inquiries').value);
+    var fv=parseFloat(G('first_visit').value);
+    var hasErr=false;
 
-    if(!inq){
-      G('err_inq').classList.add('show');
-      G('daily_inquiries').classList.add('field-err');
-      hasErr = true;
-    } else {
-      G('err_inq').classList.remove('show');
-      G('daily_inquiries').classList.remove('field-err');
-    }
+    if(!inq){G('err_inq').classList.add('show');G('daily_inquiries').classList.add('field-err');hasErr=true;}
+    else{G('err_inq').classList.remove('show');G('daily_inquiries').classList.remove('field-err');}
 
-    if(!fv){
-      G('err_fv').classList.add('show');
-      G('first_visit').classList.add('field-err');
-      hasErr = true;
-    } else {
-      G('err_fv').classList.remove('show');
-      G('first_visit').classList.remove('field-err');
-    }
+    if(!fv){G('err_fv').classList.add('show');G('first_visit').classList.add('field-err');hasErr=true;}
+    else{G('err_fv').classList.remove('show');G('first_visit').classList.remove('field-err');}
 
-    if(hasErr){
-      G('err-sum').classList.add('show');
-      G('daily_inquiries').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
+    if(hasErr){G('err-sum').classList.add('show');G('daily_inquiries').scrollIntoView({behavior:'smooth',block:'center'});return;}
     G('err-sum').classList.remove('show');
 
-    var spaName  = G('spa_name').value  || 'Your Clinic';
-    var owner    = G('owner_name').value || 'the owner';
-    var vfreq    = 1.5;
-    var clife    = clientLifetime;
-    var moSpend  = fv * vfreq;
-    var lr       = getLeakRate();
-    var cr       = getConvRate();
-    var dpm      = (daysOpenVal / 7) * 30.4;
+    var spaName=G('spa_name').value||'Your Clinic';
+    var owner=G('owner_name').value||'the owner';
+    var vfreq=1.5,clife=clientLifetime,moSpend=fv*vfreq;
+    var lr=getLeakRate(),cr=getConvRate(),dpm=(daysOpenVal/7)*30.4;
 
-    var liDay    = inq * lr;
-    var lcDay    = liDay * cr;
-    var dayL     = lcDay * fv;
-    var moL      = dayL * dpm;
-    var yrL      = moL * 12;
-    var ltv      = moSpend * clife;
-    var lcMo     = lcDay * dpm;
-    var ltvMo    = lcMo * ltv;
-    var ltvYr    = ltvMo * 12;
-    var ltv3     = ltvYr * 3;
+    var liDay=inq*lr,lcDay=liDay*cr,dayL=lcDay*fv;
+    var moL=dayL*dpm,yrL=moL*12;
+    var ltv=moSpend*clife,lcMo=lcDay*dpm;
+    var ltvMo=lcMo*ltv,ltvYr=ltvMo*12,ltv3=ltvYr*3;
 
-    var score = Math.max(12, 100 - Math.round(lr * 80));
-    var grade = score >= 80 ? 'Strong Performance' : score >= 60 ? 'Moderate Gaps Identified' : score >= 40 ? 'Significant Leakage Detected' : 'Critical Revenue Leakage';
+    // ── ACCURATE SCORING ─────────────────────────────────
+    // Each category scored independently, then summed to 100.
+    // Higher points = better performance.
 
-    _calcCache = { inq:inq, fv:fv, spaName:spaName, owner:owner, lr:lr, cr:cr, dpm:dpm, moL:moL, yrL:yrL, ltv:ltv, lcMo:lcMo, ltvMo:ltvMo, ltvYr:ltvYr, ltv3:ltv3, score:score };
+    var ah  = getPill('ah-pills') || 'nothing';
+    var fu  = getPill('fu-pills') || 'none';
+    var bk  = getPill('bk-pills') || 'phone_only'; // not used in client form but safe fallback
+    var nu  = getPill('nu-pills') || 'none';        // same
 
-    // Fill results
-    G('r-name').textContent    = spaName;
-    G('r-score').textContent   = score;
-    G('r-grade').textContent   = grade;
-    G('r-clients').textContent = Math.round(lcMo);
-    G('r-mo').textContent      = fmt(moL);
+    // After-hours coverage  (0–25 pts)
+    var ahScore = {nothing:0, voicemail:5, manual:10, auto_limited:18, full_auto:25}[ah] ?? 0;
+
+    // Missed call frequency (0–20 pts) — scale is 1=best, 5=worst
+    var mcScore = Math.round((6 - missedScale) / 4 * 20); // 1→20, 2→15, 3→10, 4→5, 5→0
+
+    // Follow-up system      (0–25 pts)
+    var fuScore = {none:0, manual_rare:6, manual_regular:12, partial_auto:19, full_auto:25}[fu] ?? 0;
+
+    // Nurture system        (0–15 pts) — derived from fu answers since client form combines them
+    // We re-use fu as a proxy since the client form merges Q7 into fu-pills
+    var nuScore = {none:0, manual_rare:4, manual_regular:8, partial_auto:11, full_auto:15}[fu] ?? 0;
+
+    // Booking accessibility (0–15 pts) — inferred from after-hours + missed calls combination
+    // If they have good after-hours AND low missed calls, booking is accessible
+    var bkScore = Math.round((ahScore/25 * 0.6 + mcScore/20 * 0.4) * 15);
+
+    var score = ahScore + mcScore + fuScore + nuScore + bkScore;
+    score = Math.min(100, Math.max(8, score));
+
+    var grade = score >= 80 ? 'Strong Performance'
+              : score >= 62 ? 'Moderate Gaps Identified'
+              : score >= 42 ? 'Significant Leakage Detected'
+              : 'Critical Revenue Leakage';
+
+    _calcCache={inq:inq,fv:fv,spaName:spaName,owner:owner,lr:lr,cr:cr,dpm:dpm,moL:moL,yrL:yrL,ltv:ltv,lcMo:lcMo,ltvMo:ltvMo,ltvYr:ltvYr,ltv3:ltv3,score:score};
+
+    // Score hero
+    G('r-name').textContent=spaName;
+    G('r-score').textContent=score;
+    G('r-grade').textContent=grade;
+
+    // Primary impact tiles
+    G('r-clients').textContent=Math.round(lcMo);
+    G('r-mo').textContent=fmt(moL);
+
+    // Secondary impact tiles
+    G('r-yr').textContent=fmt(yrL);
+    G('r-ltv-per').textContent=fmt(ltv);
+    G('r-ltv-yr').textContent=fmt(ltvYr);
+    // Inline explanation inside the annual LTV tile
+    G('r-ltv-per-inline').textContent=fmt(ltv);
+    G('r-ltv-mo-clients').textContent=Math.round(lcMo);
 
     // Sources
-    var ah = getPill('ah-pills') || 'nothing';
-    var ahShareMap = { nothing: 0.38, voicemail: 0.28, manual: 0.22, auto_limited: 0.08, full_auto: 0.02 };
-    var fuShareMap = { none: 0.22, manual_rare: 0.15, manual_regular: 0.06, partial_auto: 0.03, full_auto: 0.01 };
-    var ahShare = ahShareMap[ah] !== undefined ? ahShareMap[ah] : 0.30;
-    var mcShare = Math.min((missedScale - 1) * 0.10, 0.40);
-    var fuVal = getPill('fu-pills') || 'none';
-    var fuShare = fuShareMap[fuVal] !== undefined ? fuShareMap[fuVal] : 0.15;
-    var bkShare = 0.08;
+    var ah=getPill('ah-pills')||'nothing';
+    var ahShareMap={nothing:0.38,voicemail:0.28,manual:0.22,auto_limited:0.08,full_auto:0.02};
+    var fuShareMap={none:0.22,manual_rare:0.15,manual_regular:0.06,partial_auto:0.03,full_auto:0.01};
+    var ahShare=ahShareMap[ah]!==undefined?ahShareMap[ah]:0.30;
+    var mcShare=Math.min((missedScale-1)*0.10,0.40);
+    var fuVal=getPill('fu-pills')||'none';
+    var fuShare=fuShareMap[fuVal]!==undefined?fuShareMap[fuVal]:0.15;
+    var bkShare=0.08;
 
-    var srcList = [
-      { label: 'Missed calls',          share: mcShare, val: moL * mcShare },
-      { label: 'After-hours inquiries',  share: ahShare, val: moL * ahShare },
-      { label: 'Delayed follow-up',      share: fuShare, val: moL * fuShare },
-      { label: 'Booking friction',       share: bkShare, val: moL * bkShare }
-    ].sort(function(a, b){ return b.share - a.share; });
+    var srcList=[
+      {label:'Missed calls',share:mcShare,val:moL*mcShare},
+      {label:'After-hours inquiries',share:ahShare,val:moL*ahShare},
+      {label:'Delayed follow-up',share:fuShare,val:moL*fuShare},
+      {label:'Booking friction',share:bkShare,val:moL*bkShare}
+    ].sort(function(a,b){return b.share-a.share;});
 
-    var maxShare = srcList[0].share;
-    G('sources-list').innerHTML = srcList.map(function(s){
-      return '<div class="src-item">' +
-        '<div class="src-label">' + s.label + '</div>' +
-        '<div class="src-bar-wrap"><div class="src-bar" data-width="' + Math.round(s.share / maxShare * 100) + '"></div></div>' +
-        '<div class="src-pct">' + Math.round(s.share * 100) + '%</div>' +
-        '<div class="src-val">' + fmt(s.val) + '/mo</div>' +
+    var maxShare=srcList[0].share;
+    G('sources-list').innerHTML=srcList.map(function(s){
+      return '<div class="src-item">'+
+        '<div class="src-label">'+s.label+'</div>'+
+        '<div class="src-bar-wrap"><div class="src-bar" data-width="'+Math.round(s.share/maxShare*100)+'"></div></div>'+
+        '<div class="src-pct">'+Math.round(s.share*100)+'%</div>'+
+        '<div class="src-val">'+fmt(s.val)+'/mo</div>'+
         '</div>';
     }).join('');
 
     // Recovery
-    var src = { ah: moL * ahShare, mc: moL * mcShare, nu: moL * fuShare, es: moL * bkShare };
-    var con = { ah: 0.70, mc: 0.60, nu: 0.50, es: 0.55 };
-    var hi  = { ah: 0.92, mc: 0.82, nu: 0.72, es: 0.80 };
-    var conRec = { ah: src.ah*con.ah, mc: src.mc*con.mc, nu: src.nu*con.nu, es: src.es*con.es };
-    var hiRec  = { ah: src.ah*hi.ah,  mc: src.mc*hi.mc,  nu: src.nu*hi.nu,  es: src.es*hi.es  };
-    var conTotal = conRec.ah + conRec.mc + conRec.nu + conRec.es;
-    var hiTotal  = hiRec.ah  + hiRec.mc  + hiRec.nu  + hiRec.es;
-    _recData = { conTotal: conTotal, hiTotal: hiTotal };
+    var src={ah:moL*ahShare,mc:moL*mcShare,nu:moL*fuShare,es:moL*bkShare};
+    var con={ah:0.70,mc:0.60,nu:0.50,es:0.55};
+    var hi={ah:0.92,mc:0.82,nu:0.72,es:0.80};
+    var conRec={ah:src.ah*con.ah,mc:src.mc*con.mc,nu:src.nu*con.nu,es:src.es*con.es};
+    var hiRec={ah:src.ah*hi.ah,mc:src.mc*hi.mc,nu:src.nu*hi.nu,es:src.es*hi.es};
+    var conTotal=conRec.ah+conRec.mc+conRec.nu+conRec.es;
+    var hiTotal=hiRec.ah+hiRec.mc+hiRec.nu+hiRec.es;
+    _recData={conTotal:conTotal,hiTotal:hiTotal};
 
-    G('rv-mo').textContent = fmt(conTotal);
-    G('rv-yr').textContent = fmt(conTotal * 12);
-    G('rv-hi').textContent = fmt(hiTotal);
+    G('rv-mo').textContent=fmt(conTotal);
+    G('rv-yr').textContent=fmt(conTotal*12);
+    G('rv-hi').textContent=fmt(hiTotal);
 
-    // Webhook — $ formatted values for GHL
-    var contactEmail = G('contact_email') ? G('contact_email').value : '';
-    fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        spa_name:        spaName,
-        owner_name:      owner,
-        email:           contactEmail,
-        daily_inquiries: Math.round(inq),
-        monthly_loss:    '$' + Math.round(moL).toLocaleString(),
-        annual_loss:     '$' + Math.round(yrL).toLocaleString(),
-        lost_clients:    Math.round(lcMo),
-        ltv_loss:        '$' + Math.round(ltvYr).toLocaleString()
+    // Webhook
+    var contactEmail=G('contact_email')?G('contact_email').value:'';
+    fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        spa_name:spaName,
+        owner_name:owner,
+        email:contactEmail,
+        daily_inquiries:Math.round(inq),
+        monthly_loss:'$'+Math.round(moL).toLocaleString(),
+        annual_loss:'$'+Math.round(yrL).toLocaleString(),
+        lost_clients:Math.round(lcMo),
+        ltv_loss:'$'+Math.round(ltvYr).toLocaleString()
       })
     }).catch(function(){});
 
-    // Switch to results screen
     showScreen('results-screen');
-    G('prog').style.width = '100%';
-    G('prog-label').textContent = 'Assessment Complete';
-
-    // Show float bar
+    G('prog').style.width='100%';
+    G('prog-label').textContent='Assessment Complete';
     showFloatBar(moL);
 
-    // Animate source bars after DOM is visible
     setTimeout(function(){
       document.querySelectorAll('.src-bar').forEach(function(bar){
-        var w = bar.getAttribute('data-width');
-        if(w) bar.style.width = w + '%';
+        var w=bar.getAttribute('data-width');
+        if(w) bar.style.width=w+'%';
       });
-    }, 150);
+    },150);
   }
 
-  // ── Reset ──────────────────────────────────────────────
   function resetAll(){
     G('float-bar').classList.add('hidden');
-    G('prog').style.width = '0%';
-    G('prog-label').textContent = 'Step 1 of 7 — Clinic Info';
+    G('prog').style.width='0%';
+    G('prog-label').textContent='Step 1 of 7 — Clinic Info';
     showScreen('form-screen');
   }
 
-  // ── Modal ──────────────────────────────────────────────
   function openModal(){
-    // Pre-fill email from contact field if available
-    var emailField = G('contact_email');
-    if(emailField && emailField.value) G('modal-email').value = emailField.value;
-    // Always show step 1 when opening
-    G('modal-step1').style.display = 'block';
-    G('modal-step2').style.display = 'none';
-    G('modal-email-err').style.display = 'none';
+    var ef=G('contact_email');
+    if(ef&&ef.value) G('modal-email').value=ef.value;
+    G('modal-step1').style.display='block';
+    G('modal-step2').style.display='none';
+    G('modal-email-err').style.display='none';
     G('modal').classList.add('open');
   }
 
-  function closeModal(){
-    G('modal').classList.remove('open');
-  }
+  function closeModal(){G('modal').classList.remove('open');}
 
   function sendEmail(){
-    var email = G('modal-email').value.trim();
-    if(!email || email.indexOf('@') < 1){
-      G('modal-email-err').style.display = 'block';
-      G('modal-email').style.borderColor = 'var(--red)';
+    var email=G('modal-email').value.trim();
+    if(!email||email.indexOf('@')<1){
+      G('modal-email-err').style.display='block';
+      G('modal-email').style.borderColor='var(--red)';
       return;
     }
-    G('modal-email-err').style.display = 'none';
-    G('modal-email').style.borderColor = '';
+    G('modal-email-err').style.display='none';
+    G('modal-email').style.borderColor='';
 
-    var c = _calcCache;
-
-    // Build plain-text version for copy/webhook
-    var grade = G('r-grade') ? G('r-grade').textContent : '';
-    var summary =
-      'MEDSPA PERFORMANCE ASSESSMENT\n' +
-      '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
-      'Clinic: ' + c.spaName + '\n' +
-      'Score: ' + c.score + ' / 100  (' + grade + ')\n\n' +
-      'MISSED OPPORTUNITIES\n' +
-      '• ' + Math.round(c.lcMo) + ' new clients / month\n' +
-      '• ' + fmt(c.moL) + ' monthly revenue loss\n' +
-      '• ' + fmt(c.yrL) + ' annual revenue loss\n\n' +
-      'LIFETIME VALUE IMPACT\n' +
-      '• ' + fmt(c.ltvYr) + ' annual LTV loss\n' +
-      '• ' + fmt(c.ltv3) + ' over 3 years\n\n' +
-      'RECOVERY POTENTIAL\n' +
-      '• ' + fmt(_recData.conTotal) + ' / month (conservative)\n' +
-      '• ' + fmt(_recData.hiTotal) + ' / month (high recovery)\n\n' +
-      'DEMO: https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn\n' +
+    var c=_calcCache;
+    var grade=G('r-grade')?G('r-grade').textContent:'';
+    var summary=
+      'MEDSPA PERFORMANCE ASSESSMENT\n'+
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n'+
+      'Clinic: '+c.spaName+'\n'+
+      'Score: '+c.score+' / 100  ('+grade+')\n\n'+
+      'MISSED OPPORTUNITIES\n'+
+      '• '+Math.round(c.lcMo)+' new clients / month\n'+
+      '• '+fmt(c.moL)+' monthly revenue loss\n'+
+      '• '+fmt(c.yrL)+' annual revenue loss\n\n'+
+      'LIFETIME VALUE IMPACT\n'+
+      '• Each missed client is worth: '+fmt(c.ltv)+'\n'+
+      '• Annual LTV loss: '+fmt(c.ltvYr)+'\n\n'+
+      'RECOVERY POTENTIAL\n'+
+      '• '+fmt(_recData.conTotal)+' / month (conservative)\n'+
+      '• '+fmt(_recData.hiTotal)+' / month (high recovery)\n\n'+
+      'DEMO: https://api.leadconnectorhq.com/widget/booking/i55AzeT7M46Wy1hrdlKn\n'+
       'EnterGreatAI';
 
-    // Send to GHL webhook with $ formatted values
-    fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        spa_name:        c.spaName,
-        owner_name:      c.owner,
-        email:           email,
-        daily_inquiries: Math.round(c.inq),
-        monthly_loss:    '$' + Math.round(c.moL).toLocaleString(),
-        annual_loss:     '$' + Math.round(c.yrL).toLocaleString(),
-        lost_clients:    Math.round(c.lcMo),
-        ltv_loss:        '$' + Math.round(c.ltvYr).toLocaleString(),
-        score:           c.score,
-        email_requested: true,
-        summary:         summary
+    fetch("https://services.leadconnectorhq.com/hooks/rzwhl62Z7CMgMWpIBtAt/webhook-trigger/8a0822b2-8691-4e09-9dcb-1aed602a2807",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        spa_name:c.spaName,
+        owner_name:c.owner,
+        email:email,
+        daily_inquiries:Math.round(c.inq),
+        monthly_loss:'$'+Math.round(c.moL).toLocaleString(),
+        annual_loss:'$'+Math.round(c.yrL).toLocaleString(),
+        lost_clients:Math.round(c.lcMo),
+        ltv_loss:'$'+Math.round(c.ltvYr).toLocaleString(),
+        score:c.score,
+        email_requested:true,
+        summary:summary
       })
     }).catch(function(){});
 
-    // Render card-based summary
-    G('modal-summary-cards').dataset.plaintext = summary;
-    G('modal-summary-cards').innerHTML =
-      '<div class="sum-section">' +
-        '<div class="sum-section-title">Clinic</div>' +
-        '<div class="sum-row"><div class="sum-key">Name</div><div class="sum-val gold">' + c.spaName + '</div></div>' +
-        '<div class="sum-row"><div class="sum-key">Performance Score</div><div class="sum-val gold">' + c.score + ' / 100</div></div>' +
-        '<div class="sum-row"><div class="sum-key">Rating</div><div class="sum-val" style="font-size:12px;color:var(--text-muted)">' + grade + '</div></div>' +
-      '</div>' +
-      '<div class="sum-section">' +
-        '<div class="sum-section-title">Missed Opportunities</div>' +
-        '<div class="sum-row"><div class="sum-key">Lost clients / month</div><div class="sum-val red">' + Math.round(c.lcMo) + '</div></div>' +
-        '<div class="sum-row"><div class="sum-key">Monthly revenue loss</div><div class="sum-val red">' + fmt(c.moL) + '</div></div>' +
-        '<div class="sum-row"><div class="sum-key">Annual revenue loss</div><div class="sum-val red">' + fmt(c.yrL) + '</div></div>' +
-      '</div>' +
-      '<div class="sum-section">' +
-        '<div class="sum-section-title">Lifetime Value Impact</div>' +
-        '<div class="sum-row"><div class="sum-key">Annual LTV loss</div><div class="sum-val red">' + fmt(c.ltvYr) + '</div></div>' +
-        '<div class="sum-row"><div class="sum-key">3-year compounded</div><div class="sum-val red">' + fmt(c.ltv3) + '</div></div>' +
-      '</div>' +
-      '<div class="sum-section">' +
-        '<div class="sum-section-title">Recovery Potential</div>' +
-        '<div class="sum-row"><div class="sum-key">Conservative / month</div><div class="sum-val green">' + fmt(_recData.conTotal) + '</div></div>' +
-        '<div class="sum-row"><div class="sum-key">High recovery / month</div><div class="sum-val green">' + fmt(_recData.hiTotal) + '</div></div>' +
+    G('modal-summary-cards').innerHTML=
+      '<div class="sum-section">'+
+        '<div class="sum-section-title">Clinic</div>'+
+        '<div class="sum-row"><div class="sum-key">Name</div><div class="sum-val gold">'+c.spaName+'</div></div>'+
+        '<div class="sum-row"><div class="sum-key">Performance Score</div><div class="sum-val gold">'+c.score+' / 100</div></div>'+
+        '<div class="sum-row"><div class="sum-key">Rating</div><div class="sum-val" style="font-size:12px;color:var(--text-muted)">'+grade+'</div></div>'+
+      '</div>'+
+      '<div class="sum-section">'+
+        '<div class="sum-section-title">Revenue Losses</div>'+
+        '<div class="sum-row"><div class="sum-key">Lost clients / month</div><div class="sum-val red">'+Math.round(c.lcMo)+'</div></div>'+
+        '<div class="sum-row"><div class="sum-key">Monthly revenue loss</div><div class="sum-val red">'+fmt(c.moL)+'</div></div>'+
+        '<div class="sum-row"><div class="sum-key">Annual revenue loss</div><div class="sum-val red">'+fmt(c.yrL)+'</div></div>'+
+      '</div>'+
+      '<div class="sum-section">'+
+        '<div class="sum-section-title">Lifetime Value Impact</div>'+
+        '<div class="sum-row"><div class="sum-key">Each missed client is worth</div><div class="sum-val red">'+fmt(c.ltv)+'</div></div>'+
+        '<div class="sum-row"><div class="sum-key">Annual LTV loss</div><div class="sum-val red">'+fmt(c.ltvYr)+'</div></div>'+
+      '</div>'+
+      '<div class="sum-section">'+
+        '<div class="sum-section-title">Recovery Potential</div>'+
+        '<div class="sum-row"><div class="sum-key">Conservative / month</div><div class="sum-val green">'+fmt(_recData.conTotal)+'</div></div>'+
+        '<div class="sum-row"><div class="sum-key">High recovery / month</div><div class="sum-val green">'+fmt(_recData.hiTotal)+'</div></div>'+
       '</div>';
 
-    G('modal-step1').style.display = 'none';
-    G('modal-step2').style.display = 'block';
+    G('modal-step1').style.display='none';
+    G('modal-step2').style.display='block';
   }
 
   function showToast(msg){
-    var t = G('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(function(){ t.classList.remove('show'); }, 2500);
+    var t=G('toast');t.textContent=msg;t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show');},2500);
   }
 
-  // Init
+  function saveResultsImage(){
+    var saveBtn = document.querySelector('#modal-step2 .modal-send');
+    var origText = saveBtn.textContent;
+    saveBtn.textContent = 'Generating...';
+    saveBtn.disabled = true;
+
+    // Temporarily hide the modal overlay so results screen is visible
+    G('modal').classList.remove('open');
+
+    var target = G('results-screen');
+
+    setTimeout(function(){
+      html2canvas(target, {
+        backgroundColor: '#09090A',
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        scrollY: -window.scrollY,
+        windowWidth: target.scrollWidth,
+        windowHeight: target.scrollHeight
+      }).then(function(canvas){
+        var link = document.createElement('a');
+        var c = _calcCache;
+        var fname = (c.spaName || 'MedSpa').replace(/[^a-z0-9]/gi,'_');
+        link.download = fname + '_Assessment_Results.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        // Re-open modal after download
+        G('modal').classList.add('open');
+        saveBtn.textContent = '✓ Saved!';
+        saveBtn.disabled = false;
+        setTimeout(function(){ saveBtn.textContent = origText; }, 2500);
+      }).catch(function(){
+        G('modal').classList.add('open');
+        saveBtn.textContent = origText;
+        saveBtn.disabled = false;
+        showToast('Download failed — try screenshot instead');
+      });
+    }, 100);
+  }
+
   updateProg();
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </body>
 </html>
